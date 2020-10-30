@@ -21,7 +21,7 @@ public class ModelLink : MonoBehaviour
         if (sphere == _ms._rhalf)
         {
             brain.transform.rotation = _zerorotate;
-            while (_menu.markerTimer) _menu.ChooseSlice();
+            while (_menu.sliceActive) _menu.ChooseSlice();
             wz.Y = 0.25f;
             wz.X = 0.25f;
         }
@@ -29,7 +29,7 @@ public class ModelLink : MonoBehaviour
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0, -180, 0);
-            while (_menu.markerTimer) _menu.ChooseSlice();
+            while (_menu.sliceActive) _menu.ChooseSlice();
             wz.Y = 0.52f;
             wz.X = 0.36f;
                 //Debug.Log("Cerebellum slide");
@@ -38,7 +38,7 @@ public class ModelLink : MonoBehaviour
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0f, -90, 0);
-            while (!_menu.markerTimer) _menu.ChooseSlice();
+            while (!_menu.sliceActive) _menu.ChooseSlice();
             wz.Y = 0.43f;
             wz.X = 0f;
             //Debug.Log("Bridge slide");
@@ -47,7 +47,7 @@ public class ModelLink : MonoBehaviour
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0f, -90, 0);
-            while (!_menu.markerTimer) _menu.ChooseSlice();
+            while (!_menu.sliceActive) _menu.ChooseSlice();
             wz.Y = 0.62f;
             wz.X = 0.1f;
             //Debug.Log("Long slide");
@@ -56,7 +56,7 @@ public class ModelLink : MonoBehaviour
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0f, -90, 0);
-            while (!_menu.markerTimer) _menu.ChooseSlice();
+            while (!_menu.sliceActive) _menu.ChooseSlice();
             wz.Y = 0.45f;
             wz.X = -0.14f;
             //Debug.Log("middle slide");
@@ -65,7 +65,7 @@ public class ModelLink : MonoBehaviour
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0, -90, 0);
-            while (!_menu.markerTimer) _menu.ChooseSlice();
+            while (!_menu.sliceActive) _menu.ChooseSlice();
             wz.Y = 0.45f;
         }
     }

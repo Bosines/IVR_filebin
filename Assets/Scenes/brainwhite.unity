@@ -2032,7 +2032,7 @@ RectTransform:
   m_Children:
   - {fileID: 321582717}
   m_Father: {fileID: 939049174}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10696,7 +10696,7 @@ RectTransform:
   - {fileID: 1821162307}
   - {fileID: 2020580139}
   m_Father: {fileID: 939049174}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10751,7 +10751,7 @@ Canvas:
   m_GameObject: {fileID: 687206989}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 939049176}
   m_PlaneDistance: 1
   m_PixelPerfect: 1
@@ -13223,7 +13223,7 @@ GameObject:
   - component: {fileID: 889650728}
   - component: {fileID: 889650727}
   m_Layer: 5
-  m_Name: Acetilholin (1)
+  m_Name: AcetHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13585,8 +13585,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 164075065}
   - {fileID: 687206990}
+  - {fileID: 164075065}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27007,19 +27007,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ae5ec1dc0d1fe48841ed7fe0ad6871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
+  menuVisible: 0
   isWork: 0
   categoryOpen: 0
   wayTimer: 0
-  captionTimer: 1
+  captionsVisible: 1
   marker: {fileID: 1380319391}
   isPresent: 0
   sliceTimer: 0
   slideTimer: 0
   markerTimer: 0
-  timerSliceButt: 0
+  sliceButtVisible: 0
   sceneCube: {fileID: 1701291215}
-  acetHelp: {fileID: 0}
+  acetHelp: {fileID: 889650725}
   cube: {fileID: 1961610268}
   presentation: {fileID: 191107899}
   slices: {fileID: 0}

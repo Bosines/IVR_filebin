@@ -115,7 +115,7 @@ public class MoveSphere : MonoBehaviour
         sphereChosen       = false;
         _menuScript.isWork = false;
         
-        if (_menuScript.markerTimer) _menuScript.ChooseSlice();
+        if (_menuScript.sliceActive) _menuScript.ChooseSlice();
         //_globalText.SetActive(true);
         //_localText.SetActive(false);
         //_button.transform.position     -= _temp;

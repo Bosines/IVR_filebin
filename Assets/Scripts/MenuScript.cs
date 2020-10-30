@@ -5,17 +5,18 @@ using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
-    public bool timer;
+    public bool menuVisible;
     public bool isWork;
     public bool categoryOpen;
-    public bool wayTimer;
+    public bool wayVisible;
     public bool captionsVisible = true;
     private int _acetTimer = -1;
     private const float TimeDelta = 0.10f;
 
     private Vector3 _defaultRoll = new Vector3(13.5f, 43.7f);
-    private readonly Vector3 _right = new Vector3(0.2f, 0f, 0);
-    private readonly Vector3 _left = new Vector3(-0.2f, 0f, 0);
+    //0.2 instead of 225 when screen space
+    private readonly Vector3 _right = new Vector3(225, 0f, 0);
+    private readonly Vector3 _left = new Vector3(-225, 0f, 0);
     private SphereCollider _brain;
     private Image _categoryMain;
     private CanvasRenderer _categoryRoll;
@@ -23,8 +24,8 @@ public class MenuScript : MonoBehaviour
     public bool isPresent;
     public bool sliceTimer;
     public int slideTimer;
-    public bool markerTimer;
-    public bool timerSliceButt;
+    public bool sliceActive;
+    public bool sliceButtVisible;
     
     [SerializeField] private GameObject sceneCube;
     [SerializeField] private GameObject acetHelp;
@@ -66,7 +67,6 @@ public class MenuScript : MonoBehaviour
     
     public void Update()
     {
-        //|| Input.GetKeyDown(KeyCode.M))
         if (Input.GetButtonDown("Menu") & !isWork)
             Clicked();
         
@@ -79,10 +79,10 @@ public class MenuScript : MonoBehaviour
             SlicesButton();
         
         
-        if (Input.GetKeyDown(KeyCode.Escape) & wayTimer)
+        if (Input.GetKeyDown(KeyCode.Escape) & wayVisible)
             Ways(currentWay);
 
-        if (Input.GetKeyDown(KeyCode.Escape) & markerTimer)
+        if (Input.GetKeyDown(KeyCode.Escape) & sliceActive)
             ChooseSlice();
     }
 
@@ -125,12 +125,18 @@ public class MenuScript : MonoBehaviour
 
     public void Clicked()
     {
+        if (captionsVisible) 
+            ShowCaption();
+        
+        if (sliceButtVisible)
+            ShowSliceButt();
+        
         var thisPos = transform.position;
         Vector3 rightmovement = thisPos + _right;
         Vector3 leftmovement = thisPos + _left;
         if (!isWork)
         {
-            if (timer)
+            if (menuVisible)
             {
                 _categoryRoll.transform.position = _defaultRoll;
                 UnActive();
@@ -146,24 +152,23 @@ public class MenuScript : MonoBehaviour
                 Debug.Log("Меню выезжает");
                 if (captionsVisible) ShowCaption();
             }
-            timer = !timer;
+            menuVisible = !menuVisible;
         }
     }
 
     IEnumerator SmoothMove(Vector3 target, float delta, GameObject movingObject)
     {
-        //Debug.Log("Enumerating");
-        float closeEnough = 0.001f;
+        float closeEnough = 2;
         float distance = (movingObject.transform.position - target).magnitude;
 
-        WaitForSeconds wait = new WaitForSeconds(0.007f);
+        WaitForSeconds wait = new WaitForSeconds(0.005f);
         //WaitForFixedUpdate wait = new WaitForFixedUpdate();
         //WaitForEndOfFrame wait = new WaitForEndOfFrame();
         while (distance >= closeEnough)
         {
             isWork = true;
             
-            movingObject.transform.position = Vector3.Slerp(movingObject.transform.position, target, delta);
+            movingObject.transform.position = Vector3.Lerp(movingObject.transform.position, target, delta);
             yield return wait;            
             distance = (movingObject.transform.position - target).magnitude;
         }
@@ -180,9 +185,9 @@ public class MenuScript : MonoBehaviour
         Vector3 target;
         
         if (_acetTimer == -1) 
-            target = acettp + new Vector3(0.145f, 0 ,0 );
+            target = acettp + new Vector3(170, 0 ,0 );
         else 
-            target = acettp - new Vector3(0.145f, 0 ,0 );
+            target = acettp - new Vector3(170, 0 ,0 );
         
         StartCoroutine(SmoothMove(target, 0.1f, acetHelp));
         
@@ -196,7 +201,7 @@ public class MenuScript : MonoBehaviour
     {
         sliceTimer = !sliceTimer;
         slices.SetActive(sliceTimer);
-        if (timer) Clicked();
+        if (menuVisible) Clicked();
         if (isPresent & sliceTimer) presentation.SetActive(!sliceTimer);
         if (isPresent) cube.SetActive(!sliceTimer);
         sceneCube.SetActive(!sliceTimer);
@@ -205,7 +210,7 @@ public class MenuScript : MonoBehaviour
 
     public void ChooseSlice()
     {
-        if (!markerTimer)
+        if (!sliceActive)
         {
             foreach (GameObject go in _righttag) go.SetActive(true);
             foreach (GameObject go in _everythingtag) go.SetActive(false);
@@ -240,15 +245,17 @@ public class MenuScript : MonoBehaviour
         }
         
 
-        marker.enabled = !markerTimer;
-        markerTimer = !markerTimer;
+        marker.enabled = !sliceActive;
+        sliceActive = !sliceActive;
     }
 
     public void ShowSliceButt()
     {
-        while(captionsVisible) ShowCaption();
-        sliceCategory.SetActive(!timerSliceButt);
-        timerSliceButt = !timerSliceButt;
+        if (menuVisible) 
+            Clicked();
+        
+        sliceCategory.SetActive(!sliceButtVisible);
+        sliceButtVisible = !sliceButtVisible;
     }
     
     public void ToSlide(int slideNum)
@@ -271,19 +278,19 @@ public class MenuScript : MonoBehaviour
         //cube.SetActive(isPresent);
         presentation.SetActive(!isPresent);
         lesson.SetActive(!isPresent);
-        if (timer) Clicked();
+        if (menuVisible) Clicked();
         sliceCategory.SetActive(isPresent);
         sliceButt.SetActive(isPresent);
 
         isPresent = !isPresent;
-        while (wayTimer) Ways(currentWay);
+        while (wayVisible) Ways(currentWay);
         currentLesson = lesson;
         if (captionsVisible) ShowCaption();
     }
 
     public void Ways(GameObject way)
     {
-        wayTimer = !wayTimer;
+        wayVisible = !wayVisible;
         if (isPresent) 
             PresentationMode(currentLesson);
         
@@ -301,9 +308,13 @@ public class MenuScript : MonoBehaviour
 
     public void ShowCaption()
     {
+        if (wayVisible)
+        {
+            return;
+        }
         eyeLock.enabled = captionsVisible;
-        if (markerTimer) foreach (var caption in _slicecaptions) caption.SetActive(!captionsVisible);
-        if (!markerTimer) foreach (var caption in _fullcaptions) caption.SetActive(!captionsVisible);
+        if (sliceActive) foreach (var caption in _slicecaptions) caption.SetActive(!captionsVisible);
+        if (!sliceActive) foreach (var caption in _fullcaptions) caption.SetActive(!captionsVisible);
         foreach (var caption in _captions) caption.SetActive(!captionsVisible);
         captionsVisible = !captionsVisible;
     }    
