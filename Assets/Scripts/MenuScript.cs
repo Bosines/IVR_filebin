@@ -66,46 +66,40 @@ public class MenuScript : MonoBehaviour
     public void Update()
     {
         //|| Input.GetKeyDown(KeyCode.M))
-        if (Input.GetButtonDown("Menu") & !isWork) 
-        {
+        if (Input.GetButtonDown("Menu") & !isWork)
             Clicked();
-        }
+        
         
         if (Input.GetKeyDown(KeyCode.Escape) & sliceTimer)
-        {
             SlicesButton();
-        }
+        
 
         if (Input.GetKeyDown(KeyCode.N))
-        {
             SlicesButton();
-        }
+        
         
         if (Input.GetKeyDown(KeyCode.Escape) & wayTimer)
-        {
             Ways(currentWay);
-        }
-        
+
         if (Input.GetKeyDown(KeyCode.Escape) & markerTimer)
-        {
             ChooseSlice();
-        }
     }
 
     private void UnActive()
     {
-        foreach (GameObject i in _category) i.SetActive(false);
+        foreach (GameObject i in _category) 
+            i.SetActive(false);
     }
     
     public void Entity(GameObject category)
     {
-        if (!isWork)
-        {
-            UnActive();
-            categoryOpen = false;
-            category.SetActive(true);
-            categoryOpen = true;
-        }
+        if (isWork) 
+            return;
+        
+        UnActive();
+        categoryOpen = false;
+        category.SetActive(true);
+        categoryOpen = true;
     }
 
     public void Category(float y)
@@ -114,12 +108,12 @@ public class MenuScript : MonoBehaviour
         {
             _categoryMain.enabled = !_categoryMain.enabled;
             _categoryRoll.GetComponent<Image>().enabled = !_categoryRoll.GetComponent<Image>().enabled;
-
+            
             if (_categoryMain.enabled)
             {
                 _defaultRoll = _categoryRoll.transform.position;
                 _categoryRoll.transform.position += new Vector3(0f, y);
-            }
+            } 
             else
             {
                 _categoryRoll.transform.position = _defaultRoll;
@@ -155,10 +149,11 @@ public class MenuScript : MonoBehaviour
         }
     }
 
-    IEnumerator SmoothMove(Vector3 target, float delta, GameObject moObject)
+    IEnumerator SmoothMove(Vector3 target, float delta, GameObject movingObject)
     {
+        var movingtp = movingObject.transform.position;
         float closeEnough = 0.001f;
-        float distance = (moObject.transform.position - target).magnitude;
+        float distance = (movingtp - target).magnitude;
         
         WaitForEndOfFrame wait = new WaitForEndOfFrame();
         
@@ -166,29 +161,34 @@ public class MenuScript : MonoBehaviour
         {
             isWork = true;
             
-            moObject.transform.position = Vector3.Slerp(moObject.transform.position, target, delta);
+            movingtp = Vector3.Slerp(movingtp, target, delta);
             yield return wait;
             
-            distance = (moObject.transform.position - target).magnitude;
+            distance = (movingtp - target).magnitude;
         }
         
-        moObject.transform.position = target;
+        movingtp = target;
 
         isWork = false;
     }
 
     public void AcetButton(Image arrow)
     {
+        var acettp = acetHelp.transform.position;
         arrow.transform.localScale = new Vector3(-_acetTimer, 1, 1);
         Vector3 target;
         
-        if (_acetTimer == -1) target = acetHelp.transform.position + new Vector3(0.145f, 0 ,0 );
-        else target = acetHelp.transform.position - new Vector3(0.145f, 0 ,0 );
+        if (_acetTimer == -1) 
+            target = acettp + new Vector3(0.145f, 0 ,0 );
+        else 
+            target = acettp - new Vector3(0.145f, 0 ,0 );
         
         StartCoroutine(SmoothMove(target, 0.1f, acetHelp));
         
-        if (_acetTimer == -1) _acetTimer = 1;
-        else _acetTimer = -1;
+        if (_acetTimer == -1) 
+            _acetTimer = 1;
+        else 
+            _acetTimer = -1;
     }
 
     public void SlicesButton()
@@ -210,25 +210,32 @@ public class MenuScript : MonoBehaviour
             foreach (GameObject go in _everythingtag) go.SetActive(false);
             foreach (GameObject go in _longtag) go.SetActive(true);
             
-            if (captionTimer) foreach (var caption in _slicecaptions) caption.SetActive(true);
+            if (captionTimer) 
+                foreach (var caption in _slicecaptions) 
+                    caption.SetActive(true);
             
-            foreach (var caption in _fullcaptions) caption.SetActive(false);
+            foreach (var caption in _fullcaptions) 
+                caption.SetActive(false);
 
-            _wz.x = -0.15f;
-            _wz.y = 0.25f;
+            _wz.X = -0.15f;
+            _wz.Y = 0.25f;
         }
         else
         {
-            foreach (GameObject go in _everythingtag) go.SetActive(true);
+            foreach (GameObject go in _everythingtag) 
+                go.SetActive(true);
 
-            foreach (GameObject go in _righttag) go.SetActive(true);
+            foreach (GameObject go in _righttag) 
+                go.SetActive(true);
             
-            if (captionTimer) foreach (var caption in _fullcaptions) caption.SetActive(true);
+            if (captionTimer) foreach (var caption in _fullcaptions) 
+                caption.SetActive(true);
             
-            foreach (var caption in _slicecaptions) caption.SetActive(false);
+            foreach (var caption in _slicecaptions) 
+                caption.SetActive(false);
 
-            _wz.x = 0f;
-            _wz.y = 0.25f;
+            _wz.X = 0f;
+            _wz.Y = 0.25f;
         }
         
 
@@ -275,12 +282,19 @@ public class MenuScript : MonoBehaviour
     public void Ways(GameObject way)
     {
         wayTimer = !wayTimer;
-        if (isPresent) PresentationMode(currentLesson);
+        if (isPresent) 
+            PresentationMode(currentLesson);
+        
         ShowSliceButt();
         currentWay.SetActive(false);
-        if (way != currentWay) way.SetActive(true);
+        
+        if (way != currentWay) 
+            way.SetActive(true);
+        
         currentWay = way;
-        if (captionTimer) ShowCaption();
+        
+        if (captionTimer)
+            ShowCaption();
     }
 
     public void ShowCaption()

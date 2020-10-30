@@ -22,16 +22,16 @@ public class ModelLink : MonoBehaviour
         {
             brain.transform.rotation = _zerorotate;
             while (_menu.markerTimer) _menu.ChooseSlice();
-            wz.y = 0.25f;
-            wz.x = 0.25f;
+            wz.Y = 0.25f;
+            wz.X = 0.25f;
         }
         else if (sphere == _ms._rCerebellum)
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0, -180, 0);
             while (_menu.markerTimer) _menu.ChooseSlice();
-            wz.y = 0.52f;
-            wz.x = 0.36f;
+            wz.Y = 0.52f;
+            wz.X = 0.36f;
                 //Debug.Log("Cerebellum slide");
         }
         else if (sphere == _ms._bridge)
@@ -39,8 +39,8 @@ public class ModelLink : MonoBehaviour
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0f, -90, 0);
             while (!_menu.markerTimer) _menu.ChooseSlice();
-            wz.y = 0.43f;
-            wz.x = 0f;
+            wz.Y = 0.43f;
+            wz.X = 0f;
             //Debug.Log("Bridge slide");
         }             
         else if (sphere == _ms._long)
@@ -48,8 +48,8 @@ public class ModelLink : MonoBehaviour
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0f, -90, 0);
             while (!_menu.markerTimer) _menu.ChooseSlice();
-            wz.y = 0.62f;
-            wz.x = 0.1f;
+            wz.Y = 0.62f;
+            wz.X = 0.1f;
             //Debug.Log("Long slide");
         }
         else if (sphere == _ms._middle)
@@ -57,8 +57,8 @@ public class ModelLink : MonoBehaviour
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0f, -90, 0);
             while (!_menu.markerTimer) _menu.ChooseSlice();
-            wz.y = 0.45f;
-            wz.x = -0.14f;
+            wz.Y = 0.45f;
+            wz.X = -0.14f;
             //Debug.Log("middle slide");
         }
         else
@@ -66,7 +66,7 @@ public class ModelLink : MonoBehaviour
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0, -90, 0);
             while (!_menu.markerTimer) _menu.ChooseSlice();
-            wz.y = 0.45f;
+            wz.Y = 0.45f;
         }
     }
 }

@@ -3,7 +3,7 @@
 public class TextScript : MonoBehaviour
 {
     public GameObject textThere;
-    public bool isGeneral;
+    //public bool isGeneral;
     private Camera _cameraMain;
 
     private void Awake()

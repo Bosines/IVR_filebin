@@ -33,14 +33,14 @@ public class PresentationMode : MonoBehaviour
     [SerializeField] private GameObject slide20;
     
     [SerializeField] private GameObject brain;
-    [SerializeField] private GameObject _nr;
-    [SerializeField] private GameObject _rp;
-    [SerializeField] private GameObject _ap;
-    [SerializeField] private GameObject _sn;
-    [SerializeField] private GameObject _ms;
-    [SerializeField] private GameObject _rc;
-    [SerializeField] private GameObject _hm;
-    [SerializeField] private GameObject _this1;
+    [SerializeField] private GameObject nr;
+    [SerializeField] private GameObject rp;
+    [SerializeField] private GameObject ap;
+    [SerializeField] private GameObject sn;
+    [SerializeField] private GameObject ms;
+    [SerializeField] private GameObject rc;
+    [SerializeField] private GameObject hm;
+    [SerializeField] private GameObject this1;
     
     [SerializeField] private GameObject SkipHR;
 
@@ -68,7 +68,7 @@ public class PresentationMode : MonoBehaviour
 
     public void Start()
     {
-        _this1 = this.gameObject;
+        this1 = this.gameObject;
         _moveSphere = brain.GetComponent<MoveSphere>();
         _menu = GameObject.Find("Menu").GetComponent<MenuScript>();
     }
@@ -110,7 +110,7 @@ public class PresentationMode : MonoBehaviour
             if (slide > 1) slide--;
         }
 
-        if (_rc.active)
+        if (rc.active)
         {
             TurnModel();
         }
@@ -125,7 +125,7 @@ public class PresentationMode : MonoBehaviour
         {
             case 6:
                 _moveSphere.SMoveBack();
-                _modelLink.wz.y = 0.5f;
+                _modelLink.wz.Y = 0.5f;
                 break;
             case 7:
                 _modelLink.ModelLinkvoid(GameObject.Find("Long"));
@@ -266,25 +266,25 @@ public class PresentationMode : MonoBehaviour
         switch (first)
         {
             case 1:
-                AnotherSlideHelper(_nr);
+                AnotherSlideHelper(nr);
                 break;
             case 2:
-                AnotherSlideHelper(_rp);
+                AnotherSlideHelper(rp);
                 break;
             case 3:
-                AnotherSlideHelper(_ap);
+                AnotherSlideHelper(ap);
                 break;
             case 4:
-                AnotherSlideHelper(_sn);
+                AnotherSlideHelper(sn);
                 break;
             case 5:
-                AnotherSlideHelper(_ms);
+                AnotherSlideHelper(ms);
                 break;
             case 6:
-                AnotherSlideHelper(_rc);
+                AnotherSlideHelper(rc);
                 break;
             case 7:
-                AnotherSlideHelper(_hm);
+                AnotherSlideHelper(hm);
                 break;
         }
 
@@ -296,7 +296,7 @@ public class PresentationMode : MonoBehaviour
             pm.slide = link - first * 100;
             pm.ShowButt();
             pm.WindOfChange();
-            if (category != _this1) _this1.SetActive(false);
+            if (category != this1) this1.SetActive(false);
             pm.TurnModel();
         }
     }
@@ -315,7 +315,7 @@ public class PresentationMode : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _menu.PresentationMode(_this1);
+            _menu.PresentationMode(this1);
         }
     }
 

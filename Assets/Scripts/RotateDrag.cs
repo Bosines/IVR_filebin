@@ -9,21 +9,20 @@ public class RotateDrag : MonoBehaviour {
     private void Awake()
     {
         _cameraMain = Camera.main;
-        _transform1 = _cameraMain?.transform;
+        _transform1 = _cameraMain.transform;
     }
 
     private void Update() {
         if (Input.GetButton("Rotate Brain"))
         {
             _mPosDelta = Input.mousePosition - _mPrevPos;
-            if (Vector3.Dot(transform.up, Vector3.up) >= 0)
-            {
+            
+            if (Vector3.Dot(transform.up, Vector3.up) >= 0) 
                 transform.Rotate(transform.up, -Vector3.Dot(_mPosDelta, _transform1.right), Space.World);
-            }
-            else
-            {
+            
+            else 
                 transform.Rotate(transform.up, Vector3.Dot(_mPosDelta, _transform1.right), Space.World);
-            }
+            
             transform.Rotate(_transform1.right, Vector3.Dot(_mPosDelta, _transform1.up), Space.World);
         }
         _mPrevPos = Input.mousePosition;
