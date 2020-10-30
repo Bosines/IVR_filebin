@@ -21,11 +21,21 @@ public class MenuScript : MonoBehaviour
     private Image _categoryMain;
     private CanvasRenderer _categoryRoll;
     [SerializeField] private Image marker;
-    public bool isPresent;
+    public bool presentationVisible;
     public bool sliceTimer;
     public int slideTimer;
     public bool sliceActive;
     public bool sliceButtVisible;
+    
+    //[SerializeField]
+    private Image seroCh;
+    //[SerializeField] 
+    private Image noraCh;
+    //[SerializeField] 
+    private Image dofaCh;
+    //[SerializeField] 
+    private Image acetCh;
+    
     
     [SerializeField] private GameObject sceneCube;
     [SerializeField] private GameObject acetHelp;
@@ -61,6 +71,12 @@ public class MenuScript : MonoBehaviour
         _fullcaptions = GameObject.FindGameObjectsWithTag("Full Caption");
         _slicecaptions = GameObject.FindGameObjectsWithTag("Slice Caption");
         _wz = cube.GetComponent<WheelZoom>();
+        
+        acetCh = GameObject.Find("acetChosen").GetComponent<Image>();
+        dofaCh = GameObject.Find("dofaChosen").GetComponent<Image>();
+        noraCh = GameObject.Find("noraChosen").GetComponent<Image>();
+        seroCh = GameObject.Find("seroChosen").GetComponent<Image>();
+        
         foreach (GameObject category in _category) category.SetActive(false);
         foreach (GameObject caption in _slicecaptions) caption.SetActive(false);
     }
@@ -82,6 +98,7 @@ public class MenuScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) & wayVisible)
             Ways(currentWay);
 
+        
         if (Input.GetKeyDown(KeyCode.Escape) & sliceActive)
             ChooseSlice();
     }
@@ -202,8 +219,8 @@ public class MenuScript : MonoBehaviour
         sliceTimer = !sliceTimer;
         slices.SetActive(sliceTimer);
         if (menuVisible) Clicked();
-        if (isPresent & sliceTimer) presentation.SetActive(!sliceTimer);
-        if (isPresent) cube.SetActive(!sliceTimer);
+        if (presentationVisible & sliceTimer) presentation.SetActive(!sliceTimer);
+        if (presentationVisible) cube.SetActive(!sliceTimer);
         sceneCube.SetActive(!sliceTimer);
         cube.SetActive(!sliceTimer);
     }
@@ -274,15 +291,15 @@ public class MenuScript : MonoBehaviour
         PresentationMode present = lesson.GetComponent<PresentationMode>();
         present.slide = slideTimer;
         present.WindOfChange();
-        sceneCube.SetActive(isPresent);
+        sceneCube.SetActive(presentationVisible);
         //cube.SetActive(isPresent);
-        presentation.SetActive(!isPresent);
-        lesson.SetActive(!isPresent);
+        presentation.SetActive(!presentationVisible);
+        lesson.SetActive(!presentationVisible);
         if (menuVisible) Clicked();
-        sliceCategory.SetActive(isPresent);
-        sliceButt.SetActive(isPresent);
+        sliceCategory.SetActive(presentationVisible);
+        sliceButt.SetActive(presentationVisible);
 
-        isPresent = !isPresent;
+        presentationVisible = !presentationVisible;
         while (wayVisible) Ways(currentWay);
         currentLesson = lesson;
         if (captionsVisible) ShowCaption();
@@ -290,20 +307,68 @@ public class MenuScript : MonoBehaviour
 
     public void Ways(GameObject way)
     {
-        wayVisible = !wayVisible;
-        if (isPresent) 
+        if (sliceButtVisible)
+            ShowSliceButt();
+        
+        if (wayVisible)
+        {
+            if (way == currentWay)
+            {
+                //выключаем
+                way.SetActive(false);
+                wayVisible = false;
+                showchosen(true);
+            }
+            else
+            {
+                //переключаем
+                currentWay.SetActive(false);
+                way.SetActive(true);
+                wayVisible = true;
+                currentWay = way;
+                showchosen(false);
+            }
+        }
+        else
+        {
+            //включаем
+            currentWay.SetActive(false);
+            currentWay = way;
+            way.SetActive(true);
+            wayVisible = true;
+            showchosen(false);
+        }
+        
+        
+        if (presentationVisible) 
             PresentationMode(currentLesson);
         
-        ShowSliceButt();
-        currentWay.SetActive(false);
-        
-        if (way != currentWay) 
-            way.SetActive(true);
-        
-        currentWay = way;
         
         if (captionsVisible)
             ShowCaption();
+
+        void showchosen(bool TurningOff)
+        {
+            seroCh.enabled = noraCh.enabled = acetCh.enabled = dofaCh.enabled = false;
+            if (TurningOff) return;
+            if (way == GameObject.Find("Acetilholin"))
+            {
+                acetCh.enabled = true;
+            } 
+            else if (way == GameObject.Find("dofamin"))
+            {
+               dofaCh.enabled = true;
+            } 
+            else if (way == GameObject.Find("noradrenalin"))
+            {
+                noraCh.enabled = true;
+            } 
+            else if (way == GameObject.Find("serotonin"))
+            {
+                seroCh.enabled = true;
+            }
+        }
+        
     }
 
     public void ShowCaption()
