@@ -47,7 +47,7 @@ public class PresentationMode : MonoBehaviour
     private MoveSphere _moveSphere;
     private MenuScript _menu;
     private ModelLink _modelLink;
-    [NonSerialized] public bool modelLinkWork;
+    [NonSerialized] public bool ModelLinkWork;
     
 //    public void Awake()
 //    {
@@ -303,20 +303,14 @@ public class PresentationMode : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow)) 
-        {
+        if (Input.GetKeyDown(KeyCode.RightArrow))
             ArrowButton(true);
-        }
-        
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) 
-        {
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
             ArrowButton(false);
-        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
-        {
             _menu.PresentationMode(this1);
-        }
     }
 
 }
