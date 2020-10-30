@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+    
 
 public class MenuScript : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class MenuScript : MonoBehaviour
     public bool isWork;
     public bool categoryOpen;
     public bool wayTimer;
-    public bool captionTimer = true;
+    public bool captionsVisible = true;
     private int _acetTimer = -1;
     private const float TimeDelta = 0.10f;
 
@@ -142,8 +143,8 @@ public class MenuScript : MonoBehaviour
             {
                 StartCoroutine(SmoothMove(rightmovement, TimeDelta, this.gameObject));
                 //cube.GetComponent<MoveSphere>().enabled = false;
-                Debug.Log("MoveSphere off");
-                if (captionTimer) ShowCaption();
+                Debug.Log("Меню выезжает");
+                if (captionsVisible) ShowCaption();
             }
             timer = !timer;
         }
@@ -151,23 +152,23 @@ public class MenuScript : MonoBehaviour
 
     IEnumerator SmoothMove(Vector3 target, float delta, GameObject movingObject)
     {
-        var movingtp = movingObject.transform.position;
+        //Debug.Log("Enumerating");
         float closeEnough = 0.001f;
-        float distance = (movingtp - target).magnitude;
-        
-        WaitForEndOfFrame wait = new WaitForEndOfFrame();
-        
+        float distance = (movingObject.transform.position - target).magnitude;
+
+        WaitForSeconds wait = new WaitForSeconds(0.007f);
+        //WaitForFixedUpdate wait = new WaitForFixedUpdate();
+        //WaitForEndOfFrame wait = new WaitForEndOfFrame();
         while (distance >= closeEnough)
         {
             isWork = true;
             
-            movingtp = Vector3.Slerp(movingtp, target, delta);
-            yield return wait;
-            
-            distance = (movingtp - target).magnitude;
+            movingObject.transform.position = Vector3.Slerp(movingObject.transform.position, target, delta);
+            yield return wait;            
+            distance = (movingObject.transform.position - target).magnitude;
         }
         
-        movingtp = target;
+        movingObject.transform.position = target;
 
         isWork = false;
     }
@@ -210,7 +211,7 @@ public class MenuScript : MonoBehaviour
             foreach (GameObject go in _everythingtag) go.SetActive(false);
             foreach (GameObject go in _longtag) go.SetActive(true);
             
-            if (captionTimer) 
+            if (captionsVisible) 
                 foreach (var caption in _slicecaptions) 
                     caption.SetActive(true);
             
@@ -228,7 +229,7 @@ public class MenuScript : MonoBehaviour
             foreach (GameObject go in _righttag) 
                 go.SetActive(true);
             
-            if (captionTimer) foreach (var caption in _fullcaptions) 
+            if (captionsVisible) foreach (var caption in _fullcaptions) 
                 caption.SetActive(true);
             
             foreach (var caption in _slicecaptions) 
@@ -245,6 +246,7 @@ public class MenuScript : MonoBehaviour
 
     public void ShowSliceButt()
     {
+        while(captionsVisible) ShowCaption();
         sliceCategory.SetActive(!timerSliceButt);
         timerSliceButt = !timerSliceButt;
     }
@@ -276,7 +278,7 @@ public class MenuScript : MonoBehaviour
         isPresent = !isPresent;
         while (wayTimer) Ways(currentWay);
         currentLesson = lesson;
-        if (captionTimer) ShowCaption();
+        if (captionsVisible) ShowCaption();
     }
 
     public void Ways(GameObject way)
@@ -293,16 +295,16 @@ public class MenuScript : MonoBehaviour
         
         currentWay = way;
         
-        if (captionTimer)
+        if (captionsVisible)
             ShowCaption();
     }
 
     public void ShowCaption()
     {
-        eyeLock.enabled = captionTimer;
-        if (markerTimer) foreach (var caption in _slicecaptions) caption.SetActive(!captionTimer);
-        if (!markerTimer) foreach (var caption in _fullcaptions) caption.SetActive(!captionTimer);
-        foreach (var caption in _captions) caption.SetActive(!captionTimer);
-        captionTimer = !captionTimer;
+        eyeLock.enabled = captionsVisible;
+        if (markerTimer) foreach (var caption in _slicecaptions) caption.SetActive(!captionsVisible);
+        if (!markerTimer) foreach (var caption in _fullcaptions) caption.SetActive(!captionsVisible);
+        foreach (var caption in _captions) caption.SetActive(!captionsVisible);
+        captionsVisible = !captionsVisible;
     }    
 }
