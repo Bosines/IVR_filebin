@@ -306,6 +306,7 @@ public class MenuScript : MonoBehaviour
         while (wayVisible) Ways(currentWay);
         currentLesson = lesson;
         if (captionsVisible) ShowCaption();
+        if (lesson == present.rc) present.TurnModel();
     }
 
     public void Ways(GameObject way)

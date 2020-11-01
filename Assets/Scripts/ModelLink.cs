@@ -16,16 +16,16 @@ public class ModelLink : MonoBehaviour
         _menu = GameObject.Find("Menu").GetComponent<MenuScript>();
     }
     
-    public void ModelLinkvoid(GameObject sphere)
+    public void ModelLinkvoid(string sphere)
     {
-        if (sphere == _ms._rhalf)
+        if (sphere == "Half")
         {
             brain.transform.rotation = _zerorotate;
             while (_menu.sliceActive) _menu.ChooseSlice();
             wz.Y = 0.25f;
             wz.X = 0.25f;
         }
-        else if (sphere == _ms._rCerebellum)
+        else if (sphere == "Cerebellum")
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0, -180, 0);
@@ -34,31 +34,41 @@ public class ModelLink : MonoBehaviour
             wz.X = 0.36f;
                 //Debug.Log("Cerebellum slide");
         }
-        else if (sphere == _ms._bridge)
+        else if (sphere == "Bridge")
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0f, -90, 0);
             while (!_menu.sliceActive) _menu.ChooseSlice();
-            wz.Y = 0.43f;
-            wz.X = 0f;
+            wz.Y = 0.6f;
+            wz.X = 0.5f;
             //Debug.Log("Bridge slide");
         }             
-        else if (sphere == _ms._long)
+        else if (sphere == "Long")
         {
+            //Debug.Log("Вышел потом");
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0f, -90, 0);
             while (!_menu.sliceActive) _menu.ChooseSlice();
-            wz.Y = 0.62f;
-            wz.X = 0.1f;
+            wz.Y = 0.8f;
+            wz.X = 0.75f;
             //Debug.Log("Long slide");
         }
-        else if (sphere == _ms._middle)
+        else if (sphere == "Middle")
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0f, -90, 0);
             while (!_menu.sliceActive) _menu.ChooseSlice();
             wz.Y = 0.45f;
-            wz.X = -0.14f;
+            wz.X = 0.5f;
+            //Debug.Log("middle slide");
+        }
+        else if (sphere == "Skip")
+        {
+            brain.transform.rotation = _zerorotate;
+            brain.transform.eulerAngles = new Vector3(0f, -90, 0);
+            while (!_menu.sliceActive) _menu.ChooseSlice();
+            wz.Y = 0.35f;
+            wz.X = 0.35f;
             //Debug.Log("middle slide");
         }
         else

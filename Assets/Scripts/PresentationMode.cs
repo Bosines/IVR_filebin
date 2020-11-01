@@ -1,7 +1,6 @@
 ﻿#pragma warning disable 0649
 
 using System;
-//using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,7 +37,7 @@ public class PresentationMode : MonoBehaviour
     [SerializeField] private GameObject ap;
     [SerializeField] private GameObject sn;
     [SerializeField] private GameObject ms;
-    [SerializeField] private GameObject rc;
+    [SerializeField] public GameObject rc;
     [SerializeField] private GameObject hm;
     [SerializeField] private GameObject this1;
     
@@ -49,21 +48,18 @@ public class PresentationMode : MonoBehaviour
     private ModelLink _modelLink;
     [NonSerialized] public bool ModelLinkWork;
     
-//    public void Awake()
-//    {
-////         _nr = GameObject.Find("Neurons");
-////         _rp = GameObject.Find("RP");
-////         _ap = GameObject.Find("AP");
-////         _sn = GameObject.Find("SN");
-////         _ms = GameObject.Find("MS");
-////         _rc = GameObject.Find("RC");
-////         _hm = GameObject.Find("HM");
-//    }
 
     public void Awake()
     {
         SkipHR = GameObject.Find("SkipHR");
         _modelLink = GameObject.Find("Menu").GetComponent<ModelLink>();
+        ////         _nr = GameObject.Find("Neurons");
+        ////         _rp = GameObject.Find("RP");
+        ////         _ap = GameObject.Find("AP");
+        ////         _sn = GameObject.Find("SN");
+        ////         _ms = GameObject.Find("MS");
+        ////         _rc = GameObject.Find("RC");
+        ////         _hm = GameObject.Find("HM");
     }
 
     public void Start()
@@ -124,26 +120,27 @@ public class PresentationMode : MonoBehaviour
         switch (slide)
         {
             case 6:
-                _moveSphere.SMoveBack();
-                _modelLink.wz.Y = 0.5f;
+                //_moveSphere.SMoveBack();
+                _modelLink.wz.Y = 0.6f;
                 break;
             case 7:
-                _modelLink.ModelLinkvoid(GameObject.Find("Long"));
+                Debug.Log("Зашёл сначала");
+                _modelLink.ModelLinkvoid("Long");
                 break;
             case 8:
-                _modelLink.ModelLinkvoid(GameObject.Find("Bridge"));
+                _modelLink.ModelLinkvoid("Bridge");
                 break;
             case 9:
-                _modelLink.ModelLinkvoid(GameObject.Find("RCerebellum"));
+                _modelLink.ModelLinkvoid("Cerebellum");
                 break;
             case 10:
-                _modelLink.ModelLinkvoid(GameObject.Find("Middle"));
+                _modelLink.ModelLinkvoid("Middle");
                 break;
             case 11:
-                _modelLink.ModelLinkvoid(SkipHR);
+                _modelLink.ModelLinkvoid("Skip"); 
                 break;
             case 12:
-                _modelLink.ModelLinkvoid(GameObject.Find("RHalf"));
+                _modelLink.ModelLinkvoid("Half");
                 break;
         }
     }

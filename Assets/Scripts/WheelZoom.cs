@@ -6,10 +6,10 @@ public class WheelZoom : MonoBehaviour
  {
      private const int MinFov = -2;
      private const int MaxFov = 11;
-     private int sensitivity = 20;
+     private float sensitivity = 20;
      [SerializeField] private Slider zoomBar;
      public GameObject cubeS;
-     [NonSerialized] private float _zoom;
+     private float _zoom;
      [NonSerialized] public float Y = 0.25f, X;
      private void Update() 
      {

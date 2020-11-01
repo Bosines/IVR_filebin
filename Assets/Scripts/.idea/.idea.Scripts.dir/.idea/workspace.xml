@@ -10,7 +10,27 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/MoveSphere.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ColliderEventTrigger.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RotateDrag.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ModelLink.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MenuScript.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TextScript.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WheelZoom.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/PresentationMode.cs" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1jhLrkg2T6brDSgessn2rr1c5wZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -18,32 +38,23 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.aaa">
-    <configuration name="Unity1" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="52012">
+    <configuration name="Unity1" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="52012" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="52012">
+    <configuration name="aaa" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="52012" />
-      <option name="selectedOptions">
-        <set />
-      </option>
-      <method v="2" />
-    </configuration>
-    <configuration name="aaa" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="52012">
-      <option name="allowRunningInParallel" value="false" />
-      <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="52012" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -63,13 +74,15 @@
       <option name="presentableId" value="Default" />
       <updated>1604251588950</updated>
       <workItem from="1604251599829" duration="441000" />
+      <workItem from="1604261650120" duration="125000" />
+      <workItem from="1604261831348" duration="234000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -79,9 +92,9 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="254" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1604251922402" />
-    <state x="173" y="21" key="SettingsEditor" timestamp="1604251936159">
+    <state x="173" y="21" key="SettingsEditor" timestamp="1604261932057">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="173" y="21" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1604251936159" />
+    <state x="173" y="21" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1604261932057" />
   </component>
 </project>
