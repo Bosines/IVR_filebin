@@ -2051,7 +2051,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5091,11 +5091,11 @@ RectTransform:
   - {fileID: 754378741}
   - {fileID: 266490174}
   - {fileID: 1536033807}
+  - {fileID: 2129788606}
   - {fileID: 1677813584}
   - {fileID: 1257440060}
   - {fileID: 2102867211}
   - {fileID: 1101102980}
-  - {fileID: 2129788606}
   - {fileID: 784948245}
   - {fileID: 47432062}
   - {fileID: 1340142782}
@@ -5137,11 +5137,11 @@ MonoBehaviour:
   slide1: {fileID: 754378737}
   slide2: {fileID: 266490170}
   slide3: {fileID: 1536033806}
-  slide4: {fileID: 1677813583}
-  slide5: {fileID: 1257440059}
-  slide6: {fileID: 2102867210}
-  slide7: {fileID: 1101102979}
-  slide8: {fileID: 2129788605}
+  slide4: {fileID: 2129788605}
+  slide5: {fileID: 1677813583}
+  slide6: {fileID: 1257440059}
+  slide7: {fileID: 2102867210}
+  slide8: {fileID: 1101102979}
   slide9: {fileID: 784948244}
   slide10: {fileID: 47432061}
   slide11: {fileID: 1340142781}
@@ -16710,7 +16710,7 @@ GameObject:
   - component: {fileID: 1101102982}
   - component: {fileID: 1101102981}
   m_Layer: 5
-  m_Name: MS7
+  m_Name: MS8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16729,7 +16729,7 @@ RectTransform:
   m_Children:
   - {fileID: 831589384}
   m_Father: {fileID: 320140493}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -18591,7 +18591,7 @@ GameObject:
   - component: {fileID: 1257440062}
   - component: {fileID: 1257440061}
   m_Layer: 5
-  m_Name: MS5
+  m_Name: MS6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18610,7 +18610,7 @@ RectTransform:
   m_Children:
   - {fileID: 1377882478}
   m_Father: {fileID: 320140493}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -25957,7 +25957,7 @@ GameObject:
   - component: {fileID: 1677813586}
   - component: {fileID: 1677813585}
   m_Layer: 5
-  m_Name: MS4
+  m_Name: MS5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25976,7 +25976,7 @@ RectTransform:
   m_Children:
   - {fileID: 1803900666}
   m_Father: {fileID: 320140493}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -34794,7 +34794,7 @@ GameObject:
   - component: {fileID: 2102867213}
   - component: {fileID: 2102867212}
   m_Layer: 5
-  m_Name: MS6
+  m_Name: MS7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34813,7 +34813,7 @@ RectTransform:
   m_Children:
   - {fileID: 499339900}
   m_Father: {fileID: 320140493}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -35349,7 +35349,7 @@ GameObject:
   - component: {fileID: 2129788607}
   - component: {fileID: 2129788609}
   m_Layer: 5
-  m_Name: MS8
+  m_Name: MS4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35372,7 +35372,7 @@ RectTransform:
   - {fileID: 1085475399}
   - {fileID: 466658893}
   m_Father: {fileID: 320140493}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
