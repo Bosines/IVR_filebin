@@ -63,6 +63,7 @@ public class MenuScript : MonoBehaviour
     {
         _categoryMain = GameObject.Find("CategoryMain").GetComponent<Image>();
         _categoryRoll = GameObject.Find("CategoryRoll").GetComponent<CanvasRenderer>();
+        
         _righttag = GameObject.FindGameObjectsWithTag("Right");
         _longtag = GameObject.FindGameObjectsWithTag("Long");
         _everythingtag = GameObject.FindGameObjectsWithTag("Everything");
@@ -79,6 +80,8 @@ public class MenuScript : MonoBehaviour
         
         foreach (GameObject category in _category) category.SetActive(false);
         foreach (GameObject caption in _slicecaptions) caption.SetActive(false);
+        
+        sliceCategory.SetActive(false);
     }
     
     public void Update()
@@ -307,8 +310,8 @@ public class MenuScript : MonoBehaviour
 
     public void Ways(GameObject way)
     {
-        if (sliceButtVisible)
-            ShowSliceButt();
+        /*if (sliceButtVisible)
+            ShowSliceButt();*/
         
         if (wayVisible)
         {

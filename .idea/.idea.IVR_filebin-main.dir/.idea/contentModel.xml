@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Полина\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Полина\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_.19.00" t="ExcludeRecursive" />
+    <e p="D:\downloads\лето\фрс\я ника\IVR2\IVR_filebin-main" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="test" t="IncludeRecursive">
+        <e p="build\bin" t="ExcludeRecursive" />
+        <e p="Main.cpp" t="Include" />
+        <e p="PrecompiledHeader.cpp" t="Include" />
+        <e p="PrecompiledHeader.h" t="Include" />
+        <e p="resource.h" t="Include" />
+        <e p="test.vcxproj" t="IncludeRecursive" />
+        <e p="UnityConfigureOther.gen.h" t="Include" />
+        <e p="UnityConfigureRevision.gen.h" t="Include" />
+        <e p="UnityConfigureVersion.gen.h" t="Include" />
+        <e p="WindowsPlayer.manifest" t="Include" />
+        <e p="WindowsPlayer.rc" t="Include" />
+      </e>
+      <e p="UnityPlayerStub" t="IncludeRecursive">
+        <e p="Exports.cpp" t="Include" />
+        <e p="Exports.h" t="Include" />
+        <e p="UnityPlayerStub.vcxproj" t="IncludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
