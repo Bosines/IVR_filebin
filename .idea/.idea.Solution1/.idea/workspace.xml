@@ -19,17 +19,20 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RotateDrag.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ModelLink.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScript.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Settings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TextScript.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WheelZoom.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/WheelZoom.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MoveSphere.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PresentationMode.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ModelLink.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Settings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/WheelZoom.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RotateDrag.cs" />
       </list>
     </option>
   </component>
@@ -65,7 +68,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604262067867</updated>
-      <workItem from="1604262074423" duration="5254000" />
+      <workItem from="1604262074423" duration="7916000" />
     </task>
     <servers />
   </component>

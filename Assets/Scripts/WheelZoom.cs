@@ -19,7 +19,7 @@ public class WheelZoom : MonoBehaviour
          zoomBar.value = _zoom;
          cubeS.transform.position = new Vector3(X, Y,_zoom);
      }
-     
+
      private void ChangeFov(float zoomAmount)
      {
          cubeS.transform.position = new Vector3(0f, 0.25f, zoomAmount);

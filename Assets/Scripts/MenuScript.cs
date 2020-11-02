@@ -31,10 +31,11 @@ public class MenuScript : MonoBehaviour
     
     [SerializeField] private GameObject sceneCube;
     [SerializeField] private GameObject acetHelp;
+    
     public GameObject cube;
     public GameObject presentation;
     public GameObject slices;
-    public GameObject settings;
+    public GameObject SettingsGameObject;
     public GameObject sliceButt;
     public GameObject sliceCategory;
 
@@ -45,7 +46,9 @@ public class MenuScript : MonoBehaviour
     private GameObject[] _captions;
     private GameObject[] _slicecaptions;
     private GameObject[] _fullcaptions;
+    
     private WheelZoom _wz;
+    [SerializeField] public Settings Settings;
     
     [SerializeField] private GameObject currentWay;
     [SerializeField] private GameObject currentLesson;
@@ -135,6 +138,11 @@ public class MenuScript : MonoBehaviour
         }
     }
 
+    public void OpenSettings()
+    {
+        Settings.OpenClose();
+    }
+
     public void Clicked()
     {
         if (captionsVisible) 
@@ -161,7 +169,6 @@ public class MenuScript : MonoBehaviour
             {
                 StartCoroutine(SmoothMove(rightmovement, TimeDelta, this.gameObject));
                 //cube.GetComponent<MoveSphere>().enabled = false;
-                Debug.Log("Меню выезжает");
                 if (captionsVisible) ShowCaption();
             }
             menuVisible = !menuVisible;
@@ -174,8 +181,6 @@ public class MenuScript : MonoBehaviour
         float distance = (movingObject.transform.position - target).magnitude;
 
         WaitForSeconds wait = new WaitForSeconds(0.005f);
-        //WaitForFixedUpdate wait = new WaitForFixedUpdate();
-        //WaitForEndOfFrame wait = new WaitForEndOfFrame();
         while (distance >= closeEnough)
         {
             isWork = true;
