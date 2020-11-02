@@ -1,14 +1,13 @@
 ﻿using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
     
 
 public class MenuScript : MonoBehaviour
 {
-    public bool menuVisible;
     public bool isWork;
     public bool categoryOpen;
-    public bool wayVisible;
     public bool captionsVisible = true;
     private int _acetTimer = -1;
     private const float TimeDelta = 0.10f;
@@ -21,20 +20,13 @@ public class MenuScript : MonoBehaviour
     private Image _categoryMain;
     private CanvasRenderer _categoryRoll;
     [SerializeField] private Image marker;
-    public bool presentationVisible;
-    public bool sliceTimer;
-    public int slideTimer;
-    public bool sliceActive;
-    public bool sliceButtVisible;
     
-    //[SerializeField]
-    private Image seroCh;
-    //[SerializeField] 
-    private Image noraCh;
-    //[SerializeField] 
-    private Image dofaCh;
-    //[SerializeField] 
-    private Image acetCh;
+    public bool presentationVisible, sliceButtVisible, sliceActive, sliceTimer, menuVisible, wayVisible;
+    public int slideTimer;
+
+    private Image seroCh, noraCh, dofaCh, acetCh;
+
+    [SerializeField] private Transform MenuLeftPos, MenuRightPos;
     
     
     [SerializeField] private GameObject sceneCube;
@@ -152,8 +144,8 @@ public class MenuScript : MonoBehaviour
             ShowSliceButt();
         
         var thisPos = transform.position;
-        Vector3 rightmovement = thisPos + _right;
-        Vector3 leftmovement = thisPos + _left;
+        Vector3 rightmovement = MenuRightPos.position;
+        Vector3 leftmovement =  MenuLeftPos.position;
         if (!isWork)
         {
             if (menuVisible)
@@ -303,7 +295,8 @@ public class MenuScript : MonoBehaviour
         sliceButt.SetActive(presentationVisible);
 
         presentationVisible = !presentationVisible;
-        while (wayVisible) Ways(currentWay);
+        if (wayVisible) Ways(currentWay);
+        
         currentLesson = lesson;
         if (captionsVisible) ShowCaption();
         if (lesson == present.rc) present.TurnModel();

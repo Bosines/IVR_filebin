@@ -7136,7 +7136,7 @@ RectTransform:
   m_LocalScale: {x: 55.372814, y: 58.156002, z: 20.77}
   m_Children: []
   m_Father: {fileID: 687206990}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10937,6 +10937,8 @@ RectTransform:
   - {fileID: 985172780}
   - {fileID: 1701291216}
   - {fileID: 1743794548}
+  - {fileID: 2049837992}
+  - {fileID: 870543025}
   - {fileID: 455599815}
   - {fileID: 1821162307}
   - {fileID: 2020580139}
@@ -13144,6 +13146,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867817817}
   m_CullTransparentMesh: 0
+--- !u!1 &870543024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 870543025}
+  m_Layer: 5
+  m_Name: MenuPointerLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &870543025
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870543024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.8961366, y: 3.086734, z: 1.1024051}
+  m_Children: []
+  m_Father: {fileID: 687206990}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -363, y: 16.8}
+  m_SizeDelta: {x: 100, y: 114.1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &870726497
 GameObject:
   m_ObjectHideFlags: 0
@@ -27762,17 +27799,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ae5ec1dc0d1fe48841ed7fe0ad6871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuVisible: 0
   isWork: 0
   categoryOpen: 0
-  wayVisible: 0
   captionsVisible: 1
   marker: {fileID: 1380319391}
   presentationVisible: 0
-  sliceTimer: 0
-  slideTimer: 0
-  sliceActive: 0
   sliceButtVisible: 0
+  sliceActive: 0
+  sliceTimer: 0
+  menuVisible: 0
+  wayVisible: 0
+  slideTimer: 0
+  MenuLeftPos: {fileID: 870543025}
+  MenuRightPos: {fileID: 2049837992}
   sceneCube: {fileID: 1701291215}
   acetHelp: {fileID: 889650725}
   cube: {fileID: 1961610268}
@@ -29580,7 +29619,7 @@ RectTransform:
   - {fileID: 1796451294}
   - {fileID: 1834061952}
   m_Father: {fileID: 687206990}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33952,7 +33991,7 @@ RectTransform:
   m_Children:
   - {fileID: 277121636}
   m_Father: {fileID: 687206990}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -34381,6 +34420,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049337788}
   m_CullTransparentMesh: 0
+--- !u!1 &2049837991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2049837992}
+  m_Layer: 5
+  m_Name: MenuPointerRIght
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2049837992
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049837991}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.8961366, y: 3.0867343, z: 1.1024052}
+  m_Children: []
+  m_Father: {fileID: 687206990}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -141.38, y: 16.800005}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2050956317
 GameObject:
   m_ObjectHideFlags: 0
