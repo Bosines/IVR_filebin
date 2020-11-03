@@ -85,12 +85,12 @@ public class MenuScript : MonoBehaviour
             Clicked();
         
         
-        if (Input.GetKeyDown(KeyCode.Escape) & sliceTimer)
-            SlicesButton();
+        /*if (Input.GetKeyDown(KeyCode.Escape) & sliceTimer)
+            SlicesButton();*/
         
 
         if (Input.GetKeyDown(KeyCode.N))
-            SlicesButton();
+            ShowSliceButt();
         
         
         if (Input.GetKeyDown(KeyCode.Escape) & wayVisible)
@@ -214,7 +214,7 @@ public class MenuScript : MonoBehaviour
             _acetTimer = -1;
     }
 
-    public void SlicesButton()
+    /*public void SlicesButton()
     {
         sliceTimer = !sliceTimer;
         slices.SetActive(sliceTimer);
@@ -223,7 +223,7 @@ public class MenuScript : MonoBehaviour
         if (presentationVisible) cube.SetActive(!sliceTimer);
         sceneCube.SetActive(!sliceTimer);
         cube.SetActive(!sliceTimer);
-    }
+    }*/
 
     public void ChooseSlice()
     {

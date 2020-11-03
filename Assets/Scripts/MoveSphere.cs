@@ -9,7 +9,7 @@ public class MoveSphere : MonoBehaviour
 //    private readonly Vector3 _zero = Vector3.zero;
 //    private Button     _button;
 //    private Button     _menubutton;
-    private readonly Quaternion _zeroRotate = new Quaternion(0, 0, 0, 0);
+    private readonly Quaternion _zeroRotate    = new Quaternion(0, 0, 0, 0);
 
     private readonly Vector3 lhalf             = new Vector3(-0.045f, -0.134f, -0.22f);
     private readonly Vector3 rhalf             = new Vector3(0.045f, -0.134f, -0.22f);
@@ -37,7 +37,7 @@ public class MoveSphere : MonoBehaviour
     [NonSerialized] public GameObject _middle;
     [NonSerialized] public GameObject _skipHL;
     [NonSerialized] public GameObject _skipHR;
-    [NonSerialized]private GameObject _brain;
+    [NonSerialized] private GameObject _brain;
     
     private GameObject _globalText;
     private GameObject _menu;
