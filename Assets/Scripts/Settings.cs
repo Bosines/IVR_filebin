@@ -12,6 +12,8 @@ public class Settings : MonoBehaviour
     [NonSerialized] public bool settingsVisible;
     private Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
 
+    private KeyCode[] mouseKeys;
+
     private GameObject currentKey;
 
     public Text slice, menu, rotate;
@@ -25,6 +27,8 @@ public class Settings : MonoBehaviour
         slice.text = keys["Slice"].ToString();
         menu.text = keys["Menu"].ToString();
         rotate.text = keys["Rotate"].ToString();
+        
+        mouseKeys = new KeyCode[] { KeyCode.Mouse0, KeyCode.Mouse1, KeyCode.Mouse2, KeyCode.Mouse3, KeyCode.Mouse4, KeyCode.Mouse5, KeyCode.Mouse6 };
     }
     
     public void OpenClose()
@@ -33,15 +37,14 @@ public class Settings : MonoBehaviour
         settingsVisible = !settingsVisible;
     }
 
-    public void Update()
+    public void OnGUI()
     {
         if (currentKey != null)
         {
-            if (Event.current != null)
-            {
-                Debug.Log("Зашёл");
-                Event e = Event.current;
+            Event e = Event.current;
 
+            if (e != null)
+            {
                 if (e.isKey)
                 {
                     keys[currentKey.name] = e.keyCode;
@@ -52,11 +55,17 @@ public class Settings : MonoBehaviour
 
                 if (e.isMouse)
                 {
-                    keys[currentKey.name] = e.keyCode;
-                    currentKey.transform.GetChild(0).GetComponent<Text>().text = e.keyCode.ToString();
-                    currentKey = null;
-                    Debug.Log("Mouse pressed");
+                    for (int i = 0; i < mouseKeys.Length; i++)
+                    { 
+                        if (Input.GetKeyDown(mouseKeys[i])) 
+                        {
+                            keys[currentKey.name] = mouseKeys[i];
+                            currentKey.transform.GetChild(0).GetComponent<Text>().text = mouseKeys[i].ToString();    
+                            currentKey = null;
+                        }
+                    }
                 }
+
             }
         }
     }
