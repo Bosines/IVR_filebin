@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
+    private InputManager _inputManager;
+    
     [NonSerialized] public bool settingsVisible;
     private Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
 
@@ -20,13 +22,15 @@ public class Settings : MonoBehaviour
 
     public void Start()
     {
-        keys.Add("Slice", KeyCode.N);
-        keys.Add("Menu", KeyCode.M);
-        keys.Add("Rotate", KeyCode.Mouse1);
+        _inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
+        
+        keys.Add("SliceSet", KeyCode.N);
+        keys.Add("MenuSet", KeyCode.M);
+        keys.Add("RotateSet", KeyCode.Mouse1);
 
-        slice.text = keys["Slice"].ToString();
-        menu.text = keys["Menu"].ToString();
-        rotate.text = keys["Rotate"].ToString();
+        slice.text = keys["SliceSet"].ToString();
+        menu.text = keys["MenuSet"].ToString();
+        rotate.text = keys["RotateSet"].ToString();
         
         mouseKeys = new KeyCode[] { KeyCode.Mouse0, KeyCode.Mouse1, KeyCode.Mouse2, KeyCode.Mouse3, KeyCode.Mouse4, KeyCode.Mouse5, KeyCode.Mouse6 };
     }
@@ -47,10 +51,27 @@ public class Settings : MonoBehaviour
             {
                 if (e.isKey)
                 {
-                    keys[currentKey.name] = e.keyCode;
+                    //keys[currentKey.name] = e.keyCode;
                     currentKey.transform.GetChild(0).GetComponent<Text>().text = e.keyCode.ToString();
+                    //Debug.Log("Keyboard pressed");
+                    switch (currentKey.name)
+                    {
+                        case "MenuSet":
+                            _inputManager.SetKeyMap("Menu", e.keyCode);
+                            break;
+                        case "SliceSet":
+                            _inputManager.SetKeyMap("Slice", e.keyCode);
+                            break;
+                        case "RotateSet":
+                            _inputManager.SetKeyMap("Rotate", e.keyCode);
+                            break;
+                    }
+                    /*if (currentKey.name == "MenuSet")
+                    {
+                        //Debug.Log("Вышел");
+                        _inputManager.SetKeyMap("Menu", e.keyCode);
+                    }*/
                     currentKey = null;
-                    Debug.Log("Keyboard pressed");
                 }
 
                 if (e.isMouse)
@@ -59,8 +80,20 @@ public class Settings : MonoBehaviour
                     { 
                         if (Input.GetKeyDown(mouseKeys[i])) 
                         {
-                            keys[currentKey.name] = mouseKeys[i];
-                            currentKey.transform.GetChild(0).GetComponent<Text>().text = mouseKeys[i].ToString();    
+                            //keys[currentKey.name] = mouseKeys[i];
+                            currentKey.transform.GetChild(0).GetComponent<Text>().text = mouseKeys[i].ToString();
+                            switch (currentKey.name)
+                            {
+                                case "MenuSet":
+                                    _inputManager.SetKeyMap("Menu", mouseKeys[i]);
+                                    break;
+                                case "SliceSet":
+                                    _inputManager.SetKeyMap("Slice", mouseKeys[i]);
+                                    break;
+                                case "RotateSet":
+                                    _inputManager.SetKeyMap("Rotate", mouseKeys[i]);
+                                    break;
+                            }
                             currentKey = null;
                         }
                     }

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
+    private InputManager _inputManager;
+    
+    
     public bool isWork;
     public bool categoryOpen;
     public bool captionsVisible = true;
@@ -56,6 +59,8 @@ public class MenuScript : MonoBehaviour
 
     private void Awake()
     {
+        _inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
+        
         _categoryMain = GameObject.Find("CategoryMain").GetComponent<Image>();
         _categoryRoll = GameObject.Find("CategoryRoll").GetComponent<CanvasRenderer>();
         
@@ -81,7 +86,7 @@ public class MenuScript : MonoBehaviour
     
     public void Update()
     {
-        if (Input.GetButtonDown("Menu") & !isWork)
+        if (_inputManager.GetKeyDown("Menu") & !isWork)
             Clicked();
         
         
