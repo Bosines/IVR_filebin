@@ -35,8 +35,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/TextScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MoveSphere.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RotateDrag.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MenuScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InputManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MenuScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Settings.cs" />
       </list>
     </option>
@@ -74,7 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604262067867</updated>
       <workItem from="1604262074423" duration="8176000" />
-      <workItem from="1604424004904" duration="11480000" />
+      <workItem from="1604424004904" duration="13464000" />
     </task>
     <servers />
   </component>
@@ -163,9 +163,9 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="301" y="74" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1604424082151" />
-    <state x="425" y="190" key="run.anything.popup" timestamp="1604424168068">
+    <state x="425" y="190" key="run.anything.popup" timestamp="1604493767271">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="425" y="190" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1604424168068" />
+    <state x="425" y="190" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1604493767271" />
   </component>
 </project>

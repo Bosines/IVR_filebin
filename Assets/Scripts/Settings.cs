@@ -12,7 +12,7 @@ public class Settings : MonoBehaviour
     private InputManager _inputManager;
     
     [NonSerialized] public bool settingsVisible;
-    private Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
+    // private Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
 
     private KeyCode[] mouseKeys;
 
@@ -24,13 +24,13 @@ public class Settings : MonoBehaviour
     {
         _inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
         
-        keys.Add("SliceSet", KeyCode.N);
+        /*keys.Add("SliceSet", KeyCode.N);
         keys.Add("MenuSet", KeyCode.M);
-        keys.Add("RotateSet", KeyCode.Mouse1);
+        keys.Add("RotateSet", KeyCode.Mouse1);*/
 
-        slice.text = keys["SliceSet"].ToString();
+        /*slice.text = keys["Slice"].ToString();
         menu.text = keys["MenuSet"].ToString();
-        rotate.text = keys["RotateSet"].ToString();
+        rotate.text = keys["RotateSet"].ToString();*/
         
         mouseKeys = new KeyCode[] { KeyCode.Mouse0, KeyCode.Mouse1, KeyCode.Mouse2, KeyCode.Mouse3, KeyCode.Mouse4, KeyCode.Mouse5, KeyCode.Mouse6 };
     }

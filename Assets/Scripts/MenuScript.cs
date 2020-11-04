@@ -86,7 +86,7 @@ public class MenuScript : MonoBehaviour
     
     public void Update()
     {
-        if (_inputManager.GetKeyDown("Menu") & !isWork)
+        if ((_inputManager.GetKeyDown("Menu") || Input.GetKeyDown(KeyCode.Tab)) && !isWork)
             Clicked();
         
         
@@ -94,7 +94,7 @@ public class MenuScript : MonoBehaviour
             SlicesButton();*/
         
 
-        if (Input.GetKeyDown(KeyCode.N))
+        if (_inputManager.GetKeyDown("Slices"))
             ShowSliceButt();
         
         
