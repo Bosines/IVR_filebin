@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28924,17 +28924,17 @@ MonoBehaviour:
   menuVisible: 0
   wayVisible: 0
   slideTimer: 0
-  MenuLeftPos: {fileID: 870543025}
-  MenuRightPos: {fileID: 2049837992}
+  menuLeftPos: {fileID: 0}
+  menuRightPos: {fileID: 0}
   sceneCube: {fileID: 1701291215}
   acetHelp: {fileID: 889650725}
   cube: {fileID: 1961610268}
   presentation: {fileID: 191107899}
   slices: {fileID: 0}
-  SettingsGameObject: {fileID: 2020580138}
+  settingsGameObject: {fileID: 0}
   sliceButt: {fileID: 455599814}
   sliceCategory: {fileID: 1821162306}
-  Settings: {fileID: 2020580140}
+  settings: {fileID: 2020580140}
   currentWay: {fileID: 1821162306}
   currentLesson: {fileID: 889616510}
   eyeLock: {fileID: 1834061954}
@@ -35707,7 +35707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049837992}
   m_Layer: 5
-  m_Name: MenuPointerRIght
+  m_Name: MenuPointerRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

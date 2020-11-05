@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Bosines\.Rider2019.2\system\extResources" t="IncludeRecursive" />
@@ -8,12 +8,13 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="ButtonScript.cs" t="Include" />
-          <e p="ColliderEventTrigger.cs" t="Include" />
+          <e p="InputManager.cs" t="Include" />
           <e p="MenuScript.cs" t="Include" />
           <e p="ModelLink.cs" t="Include" />
           <e p="MoveSphere.cs" t="Include" />
           <e p="PresentationMode.cs" t="Include" />
           <e p="RotateDrag.cs" t="Include" />
+          <e p="Settings.cs" t="Include" />
           <e p="TextScript.cs" t="Include" />
           <e p="WheelZoom.cs" t="Include" />
         </e>

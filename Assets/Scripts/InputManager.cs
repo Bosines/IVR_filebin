@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System;
  
 public class InputManager : MonoBehaviour
 {
-    Dictionary<string, KeyCode> keys;
-    string[] keyMaps = new string[3]
+    private Dictionary<string, KeyCode> _keys;
+
+    private readonly string[] _keyMaps = new string[3]
     {
         "Menu",
         "Rotate",
-        "Slices"
+        "Slice"
     };
-    KeyCode[] defaults = new KeyCode[3]
+    private KeyCode[] _defaults = new KeyCode[3]
     {
         KeyCode.M,
         KeyCode.Mouse1,
@@ -26,24 +26,28 @@ public class InputManager : MonoBehaviour
  
     private void InitializeDictionary()
     {
-        keys = new Dictionary<string, KeyCode>();
-        for(int i=0;i<keyMaps.Length;++i)
+        _keys = new Dictionary<string, KeyCode>();
+        for(int i=0;i<_keyMaps.Length;++i)
         {
-            keys.Add(keyMaps[i], defaults[i]);
+            _keys.Add(_keyMaps[i], _defaults[i]);
         }
     }
  
     public void SetKeyMap(string keyMap,KeyCode key)
     {
-        //Debug.Log("Я зашёл");
-        if (!keys.ContainsKey(keyMap))
-            throw new ArgumentException("Invalid KeyMap in SetKeyMap: " + keyMap); //Debug.Log("Но такая уже есть");
-        
-        keys[keyMap] = key;
+/*        if (!_keys.ContainsKey(keyMap))
+            throw new ArgumentException("Invalid KeyMap in SetKeyMap: " + keyMap); //Debug.Log("Но такая уже есть");*/
+        Debug.Log(keyMap);
+        _keys[keyMap] = key;
     }
  
     public bool GetKeyDown(string keyMap)
     {
-        return Input.GetKeyDown(keys[keyMap]);
+        return Input.GetKeyDown(_keys[keyMap]);
+    }
+
+    public bool GetKey(string keyMap)
+    {
+        return Input.GetKey(_keys[keyMap]);
     }
 }

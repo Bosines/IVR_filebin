@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
     
@@ -16,9 +15,9 @@ public class MenuScript : MonoBehaviour
     private const float TimeDelta = 0.10f;
 
     private Vector3 _defaultRoll = new Vector3(13.5f, 43.7f);
-    //0.2 instead of 225 when screen space
+/*    //0.2 instead of 225 when screen space
     private readonly Vector3 _right = new Vector3(225, 0f, 0);
-    private readonly Vector3 _left = new Vector3(-225, 0f, 0);
+    private readonly Vector3 _left = new Vector3(-225, 0f, 0);*/
     private SphereCollider _brain;
     private Image _categoryMain;
     private CanvasRenderer _categoryRoll;
@@ -27,9 +26,10 @@ public class MenuScript : MonoBehaviour
     public bool presentationVisible, sliceButtVisible, sliceActive, sliceTimer, menuVisible, wayVisible;
     public int slideTimer;
 
-    private Image seroCh, noraCh, dofaCh, acetCh;
+    private Image _seroCh, _noraCh, _dofaCh, _acetCh;
+    private Image _categoryRollImage;
 
-    [SerializeField] private Transform MenuLeftPos, MenuRightPos;
+    [SerializeField] private Transform menuLeftPos, menuRightPos;
     
     
     [SerializeField] private GameObject sceneCube;
@@ -38,7 +38,7 @@ public class MenuScript : MonoBehaviour
     public GameObject cube;
     public GameObject presentation;
     public GameObject slices;
-    public GameObject SettingsGameObject;
+    public GameObject settingsGameObject;
     public GameObject sliceButt;
     public GameObject sliceCategory;
 
@@ -51,7 +51,7 @@ public class MenuScript : MonoBehaviour
     private GameObject[] _fullcaptions;
     
     private WheelZoom _wz;
-    [SerializeField] public Settings Settings;
+    [SerializeField] public Settings settings;
     
     [SerializeField] private GameObject currentWay;
     [SerializeField] private GameObject currentLesson;
@@ -59,6 +59,9 @@ public class MenuScript : MonoBehaviour
 
     private void Awake()
     {
+        menuLeftPos = GameObject.Find("MenuPointerLeft").transform;
+        menuRightPos = GameObject.Find("MenuPointerRight").transform;
+
         _inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
         
         _categoryMain = GameObject.Find("CategoryMain").GetComponent<Image>();
@@ -73,13 +76,15 @@ public class MenuScript : MonoBehaviour
         _slicecaptions = GameObject.FindGameObjectsWithTag("Slice Caption");
         _wz = cube.GetComponent<WheelZoom>();
         
-        acetCh = GameObject.Find("acetChosen").GetComponent<Image>();
-        dofaCh = GameObject.Find("dofaChosen").GetComponent<Image>();
-        noraCh = GameObject.Find("noraChosen").GetComponent<Image>();
-        seroCh = GameObject.Find("seroChosen").GetComponent<Image>();
+        _acetCh = GameObject.Find("acetChosen").GetComponent<Image>();
+        _dofaCh = GameObject.Find("dofaChosen").GetComponent<Image>();
+        _noraCh = GameObject.Find("noraChosen").GetComponent<Image>();
+        _seroCh = GameObject.Find("seroChosen").GetComponent<Image>();
         
         foreach (GameObject category in _category) category.SetActive(false);
         foreach (GameObject caption in _slicecaptions) caption.SetActive(false);
+
+        _categoryRollImage = _categoryRoll.GetComponent<Image>();
         
         sliceCategory.SetActive(false);
     }
@@ -94,7 +99,7 @@ public class MenuScript : MonoBehaviour
             SlicesButton();*/
         
 
-        if (_inputManager.GetKeyDown("Slices"))
+        if (_inputManager.GetKeyDown("Slice"))
             ShowSliceButt();
         
         
@@ -145,7 +150,7 @@ public class MenuScript : MonoBehaviour
 
     public void OpenSettings()
     {
-        Settings.OpenClose();
+        settings.OpenClose();
     }
 
     public void Clicked()
@@ -156,36 +161,31 @@ public class MenuScript : MonoBehaviour
         if (sliceButtVisible)
             ShowSliceButt();
         
-        var thisPos = transform.position;
-        Vector3 rightmovement = MenuRightPos.position;
-        Vector3 leftmovement =  MenuLeftPos.position;
-        if (!isWork)
+        if (isWork) return;
+        if (menuVisible)
         {
-            if (menuVisible)
-            {
-                _categoryRoll.transform.position = _defaultRoll;
-                UnActive();
-                categoryOpen = false;
-                StartCoroutine(SmoothMove(leftmovement, TimeDelta, this.gameObject));
-                _categoryMain.enabled = false;
-                _categoryRoll.GetComponent<Image>().enabled = false;
-            }
-            else
-            {
-                StartCoroutine(SmoothMove(rightmovement, TimeDelta, this.gameObject));
-                //cube.GetComponent<MoveSphere>().enabled = false;
-                if (captionsVisible) ShowCaption();
-            }
-            menuVisible = !menuVisible;
+            _categoryRoll.transform.position = _defaultRoll;
+            UnActive();
+            categoryOpen = false;
+            StartCoroutine(SmoothMove(menuLeftPos.position, TimeDelta, this.gameObject));
+            _categoryMain.enabled = false;
+            _categoryRollImage.enabled = false;
         }
+        else
+        {
+            StartCoroutine(SmoothMove(menuRightPos.position, TimeDelta, this.gameObject));
+            if (captionsVisible) ShowCaption();
+        }
+        menuVisible = !menuVisible;
     }
 
     IEnumerator SmoothMove(Vector3 target, float delta, GameObject movingObject)
     {
-        float closeEnough = 2;
+        const float closeEnough = 2;
         float distance = (movingObject.transform.position - target).magnitude;
 
-        WaitForSeconds wait = new WaitForSeconds(0.005f);
+        WaitForSeconds wait = new WaitForSeconds(0.02f);
+        
         while (distance >= closeEnough)
         {
             isWork = true;
@@ -324,7 +324,7 @@ public class MenuScript : MonoBehaviour
                 //выключаем
                 way.SetActive(false);
                 wayVisible = false;
-                showchosen(true);
+                ShowChosen(true);
             }
             else
             {
@@ -333,17 +333,17 @@ public class MenuScript : MonoBehaviour
                 way.SetActive(true);
                 wayVisible = true;
                 currentWay = way;
-                showchosen(false);
+                ShowChosen(false);
             }
         }
         else
         {
             //включаем
-            currentWay.SetActive(false);
+            //currentWay.SetActive(false);
             currentWay = way;
             way.SetActive(true);
             wayVisible = true;
-            showchosen(false);
+            ShowChosen(false);
         }
         
         
@@ -354,25 +354,24 @@ public class MenuScript : MonoBehaviour
         if (captionsVisible)
             ShowCaption();
 
-        void showchosen(bool TurningOff)
+        void ShowChosen(bool turningOff)
         {
-            seroCh.enabled = noraCh.enabled = acetCh.enabled = dofaCh.enabled = false;
-            if (TurningOff) return;
-            if (way == GameObject.Find("Acetilholin"))
+            _seroCh.enabled = _noraCh.enabled = _acetCh.enabled = _dofaCh.enabled = false;
+            if (turningOff) return;
+            switch (way.name)
             {
-                acetCh.enabled = true;
-            } 
-            else if (way == GameObject.Find("dofamin"))
-            {
-               dofaCh.enabled = true;
-            } 
-            else if (way == GameObject.Find("noradrenalin"))
-            {
-                noraCh.enabled = true;
-            } 
-            else if (way == GameObject.Find("serotonin"))
-            {
-                seroCh.enabled = true;
+                case "Acetilholin":
+                    _acetCh.enabled = true;
+                    break;
+                case "dofamin":
+                    _dofaCh.enabled = true;
+                    break;
+                case "noradrenalin":
+                    _noraCh.enabled = true;
+                    break;
+                case "serotonin":
+                    _seroCh.enabled = true;
+                    break;
             }
         }
         

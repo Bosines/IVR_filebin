@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 
 public class RotateDrag : MonoBehaviour {
-    private Vector3 _mPrevPos = Vector3.zero, _mPosDelta = Vector3.zero, newMousePosition = Vector3.zero;
+    private InputManager _inputManager;
+    
+    private Vector3 _mPrevPos = Vector3.zero, _mPosDelta = Vector3.zero;
     private static Camera _cameraMain;
     private Transform _transform1;
     private float sensitivity = 1f;
 
     private void Awake()
     {
+        _inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
         _cameraMain = Camera.main;
         _transform1 = _cameraMain.transform;
     }
@@ -18,7 +21,7 @@ public class RotateDrag : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetButton("Rotate Brain"))
+        if (_inputManager.GetKey("Rotate"))
         {
             //newMousePosition = new Vector3(Input.mousePosition.x * sensitivity, Input.mousePosition.y * sensitivity);
             _mPosDelta = ( Input.mousePosition - _mPrevPos );
