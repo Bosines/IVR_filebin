@@ -122,7 +122,7 @@ public class MenuScript : MonoBehaviour
         categoryOpen = true;
     }
 
-    public void Category(float y)
+    public void Category(Transform categoryTransform)
     {
         if (!isWork)
         {
@@ -132,12 +132,12 @@ public class MenuScript : MonoBehaviour
             if (_categoryMain.enabled)
             {
                 _defaultRoll = _categoryRoll.transform.position;
-                _categoryRoll.transform.position += new Vector3(0f, y);
+                _categoryRoll.transform.position = new Vector3(_categoryRoll.transform.position.x, categoryTransform.position.y);
             } 
             else
             {
                 _categoryRoll.transform.position = _defaultRoll;
-                Category(y);
+                Category(categoryTransform);
             }
         }
     }
