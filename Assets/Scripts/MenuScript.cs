@@ -344,6 +344,7 @@ public class MenuScript : MonoBehaviour
             way.SetActive(true);
             WayVisible = true;
             ShowChosen(false);
+            SliceButtVisible = true;
         }
         
         
