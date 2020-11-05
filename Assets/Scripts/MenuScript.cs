@@ -16,9 +16,6 @@ public class MenuScript : MonoBehaviour
     private const float TimeDelta = 0.10f;
 
     private Vector3 _defaultRoll = new Vector3(13.5f, 43.7f);
-/*    //0.2 instead of 225 when screen space
-    private readonly Vector3 _right = new Vector3(225, 0f, 0);
-    private readonly Vector3 _left = new Vector3(-225, 0f, 0);*/
     private SphereCollider _brain;
     private Image _categoryMain;
     private CanvasRenderer _categoryRoll;
@@ -30,7 +27,7 @@ public class MenuScript : MonoBehaviour
     private Image _seroCh, _noraCh, _dofaCh, _acetCh;
     private Image _categoryRollImage;
 
-    [SerializeField] private Transform _menuLeftPos, _menuRightPos, _acetRightPos, _acetLeftPos;
+    [SerializeField] private Transform menuLeftPos, menuRightPos, acetRightPos, acetLeftPos;
     
     
     [SerializeField] private GameObject sceneCube;
@@ -38,8 +35,6 @@ public class MenuScript : MonoBehaviour
     
     public GameObject cube;
     public GameObject presentation;
-    public GameObject slices;
-    public GameObject settingsGameObject;
     public GameObject sliceButt;
     public GameObject sliceCategory;
 
@@ -55,13 +50,13 @@ public class MenuScript : MonoBehaviour
     [SerializeField] public Settings settings;
     
     [SerializeField] private GameObject currentWay;
-    [SerializeField] private GameObject currentLesson;
+    [NonSerialized] private GameObject _currentLesson;
     [SerializeField] private Image eyeLock;
 
     private void Awake()
     {
-        _menuLeftPos = GameObject.Find("MenuPointerLeft").transform;
-        _menuRightPos = GameObject.Find("MenuPointerRight").transform;
+        menuLeftPos = GameObject.Find("MenuPointerLeft").transform;
+        menuRightPos = GameObject.Find("MenuPointerRight").transform;
 
         _inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
         
@@ -92,12 +87,10 @@ public class MenuScript : MonoBehaviour
     
     public void Update()
     {
+        if (settings.SettingsVisible) return;
+        
         if ((_inputManager.GetKeyDown("Menu") || Input.GetKeyDown(KeyCode.Tab)) && !isWork)
             Clicked();
-        
-        
-        /*if (Input.GetKeyDown(KeyCode.Escape) & sliceTimer)
-            SlicesButton();*/
         
 
         if (_inputManager.GetKeyDown("Slice"))
@@ -168,13 +161,13 @@ public class MenuScript : MonoBehaviour
             _categoryRoll.transform.position = _defaultRoll;
             UnActive();
             categoryOpen = false;
-            StartCoroutine(SmoothMove(_menuLeftPos.position, TimeDelta, this.gameObject));
+            StartCoroutine(SmoothMove(menuLeftPos.position, TimeDelta, this.gameObject));
             _categoryMain.enabled = false;
             _categoryRollImage.enabled = false;
         }
         else
         {
-            StartCoroutine(SmoothMove(_menuRightPos.position, TimeDelta, this.gameObject));
+            StartCoroutine(SmoothMove(menuRightPos.position, TimeDelta, this.gameObject));
             if (captionsVisible) ShowCaption();
         }
         MenuVisible = !MenuVisible;
@@ -207,9 +200,9 @@ public class MenuScript : MonoBehaviour
         Vector3 target;
         
         if (_acetTimer == -1) 
-            target = _acetRightPos.position;
+            target = acetRightPos.position;
         else 
-            target = _acetLeftPos.position;
+            target = acetLeftPos.position;
         
         StartCoroutine(SmoothMove(target, 0.1f, acetHelp));
         
@@ -218,17 +211,6 @@ public class MenuScript : MonoBehaviour
         else 
             _acetTimer = -1;
     }
-
-    /*public void SlicesButton()
-    {
-        sliceTimer = !sliceTimer;
-        slices.SetActive(sliceTimer);
-        if (menuVisible) Clicked();
-        if (presentationVisible & sliceTimer) presentation.SetActive(!sliceTimer);
-        if (presentationVisible) cube.SetActive(!sliceTimer);
-        sceneCube.SetActive(!sliceTimer);
-        cube.SetActive(!sliceTimer);
-    }*/
 
     public void ChooseSlice()
     {
@@ -273,6 +255,7 @@ public class MenuScript : MonoBehaviour
 
     public void ShowSliceButt()
     {
+        if (isWork) return;
         if (MenuVisible) 
             Clicked();
         
@@ -287,7 +270,7 @@ public class MenuScript : MonoBehaviour
 
     public void MediatorLink(GameObject way)
     {
-        PresentationMode(currentLesson);
+        PresentationMode(_currentLesson);
         Ways(way);
     }
 
@@ -301,22 +284,19 @@ public class MenuScript : MonoBehaviour
         presentation.SetActive(!PresentationVisible);
         lesson.SetActive(!PresentationVisible);
         if (MenuVisible) Clicked();
-        sliceCategory.SetActive(PresentationVisible);
+        //sliceCategory.SetActive(PresentationVisible);
         sliceButt.SetActive(PresentationVisible);
 
         PresentationVisible = !PresentationVisible;
         if (WayVisible) Ways(currentWay);
         
-        currentLesson = lesson;
+        _currentLesson = lesson;
         if (captionsVisible) ShowCaption();
         if (lesson == present.rc) present.TurnModel();
     }
 
     public void Ways(GameObject way)
     {
-        /*if (sliceButtVisible)
-            ShowSliceButt();*/
-        
         if (WayVisible)
         {
             if (way == currentWay)
@@ -339,7 +319,6 @@ public class MenuScript : MonoBehaviour
         else
         {
             //включаем
-            //currentWay.SetActive(false);
             currentWay = way;
             way.SetActive(true);
             WayVisible = true;
@@ -349,7 +328,7 @@ public class MenuScript : MonoBehaviour
         
         
         if (PresentationVisible) 
-            PresentationMode(currentLesson);
+            PresentationMode(_currentLesson);
         
         
         if (captionsVisible)

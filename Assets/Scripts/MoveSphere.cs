@@ -5,10 +5,6 @@ using UnityEngine.UI;
 public class MoveSphere : MonoBehaviour
 {
     [NonSerialized] public bool sphereChosen;
-//    private readonly Vector3 _temp = new Vector2(0.11f, 0f);
-//    private readonly Vector3 _zero = Vector3.zero;
-//    private Button     _button;
-//    private Button     _menubutton;
     private readonly Quaternion _zeroRotate    = new Quaternion(0, 0, 0, 0);
 
     private readonly Vector3 lhalf             = new Vector3(-0.045f, -0.134f, -0.22f);
@@ -61,8 +57,6 @@ public class MoveSphere : MonoBehaviour
         _skipHL        = GameObject.Find("SkipHL");
         _brain       = GameObject.Find("Brain");
         _menu        = GameObject.Find("Menu");
- //       _button      = GameObject.Find("UIButton").GetComponent<Button>();
-  //      _menubutton  = GameObject.Find("MenuButton").GetComponent<Button>();
         _globalText  = GameObject.Find("GlobalText");
         _localText   = GameObject.Find("LocalText");
         _brainParts = new[] {_lhalf, _rhalf, _lCerebellum, _rCerebellum, _skipHR, _long, _bridge, _middle};
@@ -79,7 +73,6 @@ public class MoveSphere : MonoBehaviour
     private void NoRotate(GameObject zero)
     {
         zero.transform.rotation = _zeroRotate;
-        //zero.GetComponent<RotateDrag>().enabled = false;
     }
     
     public void SMoveBack()
@@ -116,9 +109,5 @@ public class MoveSphere : MonoBehaviour
         _menuScript.isWork = false;
         
         if (_menuScript.SliceActive) _menuScript.ChooseSlice();
-        //_globalText.SetActive(true);
-        //_localText.SetActive(false);
-        //_button.transform.position     -= _temp;
-        //_menubutton.transform.position += _temp;
     }
 }

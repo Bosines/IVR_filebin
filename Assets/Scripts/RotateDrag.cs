@@ -6,7 +6,7 @@ public class RotateDrag : MonoBehaviour {
     private Vector3 _mPrevPos = Vector3.zero, _mPosDelta = Vector3.zero;
     private static Camera _cameraMain;
     private Transform _transform1;
-    private float sensitivity = 1f;
+    private float _sensitivity = 1f;
 
     private void Awake()
     {
@@ -17,17 +17,16 @@ public class RotateDrag : MonoBehaviour {
     
     public void ChangeSens(float sens)
     {
-        sensitivity = sens;
+        _sensitivity = sens;
     }
 
     private void Update() {
         if (_inputManager.GetKey("Rotate"))
         {
-            //newMousePosition = new Vector3(Input.mousePosition.x * sensitivity, Input.mousePosition.y * sensitivity);
             _mPosDelta = ( Input.mousePosition - _mPrevPos );
-            _mPosDelta.x *= sensitivity;
-            _mPosDelta.y *= sensitivity;
-            _mPosDelta.z *= sensitivity;
+            _mPosDelta.x *= _sensitivity;
+            _mPosDelta.y *= _sensitivity;
+            _mPosDelta.z *= _sensitivity;
             
             if (Vector3.Dot(transform.up, Vector3.up) >= 0) 
                 transform.Rotate(transform.up, -Vector3.Dot(_mPosDelta, _transform1.right), Space.World);

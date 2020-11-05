@@ -7545,6 +7545,7 @@ GameObject:
   - component: {fileID: 463568677}
   - component: {fileID: 463568679}
   - component: {fileID: 463568678}
+  - component: {fileID: 463568680}
   m_Layer: 5
   m_Name: animOn
   m_TagString: Untagged
@@ -7609,6 +7610,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463568676}
   m_CullTransparentMesh: 0
+--- !u!114 &463568680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463568676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 463568678}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2020580140}
+        m_MethodName: ToggleAnimations
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &467972118
 GameObject:
   m_ObjectHideFlags: 0
@@ -7622,7 +7677,7 @@ GameObject:
   - component: {fileID: 467972120}
   m_Layer: 0
   m_Name: VideoHolster
-  m_TagString: Untagged
+  m_TagString: Animation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9956,7 +10011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 130, y: -70.50012}
+  m_AnchoredPosition: {x: 130, y: -70.5}
   m_SizeDelta: {x: 0, y: -177.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626889670
@@ -10857,7 +10912,7 @@ GameObject:
   - component: {fileID: 690120627}
   m_Layer: 0
   m_Name: VideoHolster
-  m_TagString: Untagged
+  m_TagString: Animation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15753,7 +15808,7 @@ GameObject:
   - component: {fileID: 960991423}
   m_Layer: 0
   m_Name: VideoHolster
-  m_TagString: Untagged
+  m_TagString: Animation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20823,7 +20878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -25113,7 +25168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 130, y: -71.25012}
+  m_AnchoredPosition: {x: 130, y: -71.25}
   m_SizeDelta: {x: -0.00012588501, y: 0.000022888184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1586268652
@@ -28182,21 +28237,18 @@ MonoBehaviour:
   captionsVisible: 1
   marker: {fileID: 1380319391}
   slideTimer: 0
-  _menuLeftPos: {fileID: 0}
-  _menuRightPos: {fileID: 0}
-  _acetRightPos: {fileID: 1602750462}
-  _acetLeftPos: {fileID: 1596968212}
+  menuLeftPos: {fileID: 0}
+  menuRightPos: {fileID: 0}
+  acetRightPos: {fileID: 0}
+  acetLeftPos: {fileID: 0}
   sceneCube: {fileID: 1701291215}
   acetHelp: {fileID: 889650725}
   cube: {fileID: 1961610268}
   presentation: {fileID: 235902099}
-  slices: {fileID: 0}
-  settingsGameObject: {fileID: 2020580138}
   sliceButt: {fileID: 455599814}
   sliceCategory: {fileID: 1821162306}
   settings: {fileID: 2020580140}
-  currentWay: {fileID: 1821162306}
-  currentLesson: {fileID: 0}
+  currentWay: {fileID: 0}
   eyeLock: {fileID: 1834061954}
 --- !u!114 &1743794552
 MonoBehaviour:
@@ -34932,6 +34984,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3bed105502a5c4d9c6e3c8f01fa0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim1: {fileID: 690120627}
+  anim2: {fileID: 2112896801}
+  anim3: {fileID: 960991423}
+  anim4: {fileID: 467972120}
 --- !u!1 &2021427213
 GameObject:
   m_ObjectHideFlags: 0
@@ -36530,7 +36586,7 @@ GameObject:
   - component: {fileID: 2112896801}
   m_Layer: 0
   m_Name: VideoHolster
-  m_TagString: Untagged
+  m_TagString: Animation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

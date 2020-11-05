@@ -53,13 +53,6 @@ public class PresentationMode : MonoBehaviour
     {
         SkipHR = GameObject.Find("SkipHR");
         _modelLink = GameObject.Find("Menu").GetComponent<ModelLink>();
-        ////         _nr = GameObject.Find("Neurons");
-        ////         _rp = GameObject.Find("RP");
-        ////         _ap = GameObject.Find("AP");
-        ////         _sn = GameObject.Find("SN");
-        ////         _ms = GameObject.Find("MS");
-        ////         _rc = GameObject.Find("RC");
-        ////         _hm = GameObject.Find("HM");
     }
 
     public void Start()
@@ -241,6 +234,7 @@ public class PresentationMode : MonoBehaviour
 
     private void Reload(GameObject anime)
     {
+        if (!_menu.settings.AnimationsTurnedOn) return;
         anime.SetActive(false);
         anime.SetActive(true);
     }

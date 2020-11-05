@@ -11,6 +11,7 @@ TagManager:
   - Caption
   - Full Caption
   - Slice Caption
+  - Animation
   layers:
   - Default
   - TransparentFX
