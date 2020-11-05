@@ -1,19 +1,16 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using System;
- 
+﻿using System.Collections.Generic;
+using UnityEngine;
+
 public class InputManager : MonoBehaviour
 {
     private Dictionary<string, KeyCode> _keys;
 
-    private readonly string[] _keyMaps = new string[3]
-    {
+    private readonly string[] _keyMaps = {
         "Menu",
         "Rotate",
         "Slice"
     };
-    private KeyCode[] _defaults = new KeyCode[3]
-    {
+    private readonly KeyCode[] _defaults = {
         KeyCode.M,
         KeyCode.Mouse1,
         KeyCode.N
@@ -37,7 +34,6 @@ public class InputManager : MonoBehaviour
     {
         if(_keys.ContainsValue(key))
             return false;
-        Debug.Log(keyMap);
         _keys[keyMap] = key;
         return true;
     }

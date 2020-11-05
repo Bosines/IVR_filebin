@@ -3,7 +3,6 @@
 public class ModelLink : MonoBehaviour
 {
     [SerializeField] private GameObject brain;
-    private MoveSphere _ms;
     public WheelZoom wz;
     private MenuScript _menu;
     private readonly Quaternion _zerorotate = new Quaternion(0,0,0,0);
@@ -11,7 +10,6 @@ public class ModelLink : MonoBehaviour
     
     void Start()
     {
-        _ms = brain.GetComponent<MoveSphere>();
         wz = brain.GetComponent<WheelZoom>();
         _menu = GameObject.Find("Menu").GetComponent<MenuScript>();
     }

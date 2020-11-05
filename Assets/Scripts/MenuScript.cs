@@ -276,20 +276,16 @@ public class MenuScript : MonoBehaviour
 
     public void PresentationMode(GameObject lesson)
     {
+        if (WayVisible) Ways(currentWay);
         PresentationMode present = lesson.GetComponent<PresentationMode>();
         present.slide = slideTimer;
         present.WindOfChange();
         sceneCube.SetActive(PresentationVisible);
-        //cube.SetActive(isPresent);
         presentation.SetActive(!PresentationVisible);
         lesson.SetActive(!PresentationVisible);
         if (MenuVisible) Clicked();
-        //sliceCategory.SetActive(PresentationVisible);
         sliceButt.SetActive(PresentationVisible);
-
         PresentationVisible = !PresentationVisible;
-        if (WayVisible) Ways(currentWay);
-        
         _currentLesson = lesson;
         if (captionsVisible) ShowCaption();
         if (lesson == present.rc) present.TurnModel();

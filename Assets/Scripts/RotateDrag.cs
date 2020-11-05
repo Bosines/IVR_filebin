@@ -12,7 +12,7 @@ public class RotateDrag : MonoBehaviour {
     {
         _inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
         _cameraMain = Camera.main;
-        _transform1 = _cameraMain.transform;
+        if (_cameraMain != null) _transform1 = _cameraMain.transform;
     }
     
     public void ChangeSens(float sens)

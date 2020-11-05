@@ -31,9 +31,9 @@ public class Settings : MonoBehaviour
     {
         AnimationsTurnedOn = !AnimationsTurnedOn;
         _animOff.enabled = !AnimationsTurnedOn;
-        foreach (var SR in _spriteRenderers)
+        foreach (var sr in _spriteRenderers)
         {
-            SR.enabled = AnimationsTurnedOn;
+            sr.enabled = AnimationsTurnedOn;
         }
     }
     

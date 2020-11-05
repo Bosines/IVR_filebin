@@ -24,7 +24,6 @@ public class TextScript : MonoBehaviour
         {
             if (brain.transform.eulerAngles.y > 320 || brain.transform.eulerAngles.y < 200 || (brain.transform.eulerAngles.z > 50 && brain.transform.eulerAngles.z < 180) || (brain.transform.eulerAngles.z < 300 && brain.transform.eulerAngles.z >= 180))
             {
-                //Debug.Log(brain.transform.eulerAngles.y);
                 _image.enabled = false;
                 _text.enabled = false;
             }
@@ -38,7 +37,6 @@ public class TextScript : MonoBehaviour
         {
             if (brain.transform.eulerAngles.y > 150 || brain.transform.eulerAngles.y < 40 || (brain.transform.eulerAngles.z > 50 && brain.transform.eulerAngles.z < 180) || (brain.transform.eulerAngles.z < 300 && brain.transform.eulerAngles.z >= 180))
             {
-                //Debug.Log(brain.transform.eulerAngles.y);
                 _image.enabled = false;
                 _text.enabled = false;
             }
@@ -49,7 +47,7 @@ public class TextScript : MonoBehaviour
             }
         }
 
-        Vector3 textTranspos = this.transform.position;
+        Vector3 textTranspos = transform.position;
         Vector3 namePose = _cameraMain.WorldToScreenPoint(textTranspos);
         textThere.transform.position = namePose;
     }

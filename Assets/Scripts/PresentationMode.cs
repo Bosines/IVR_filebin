@@ -1,7 +1,4 @@
-﻿#pragma warning disable 0649
-
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PresentationMode : MonoBehaviour
@@ -31,7 +28,7 @@ public class PresentationMode : MonoBehaviour
     [SerializeField] private GameObject slide19;
     [SerializeField] private GameObject slide20;
     
-    [SerializeField] private GameObject brain;
+    //[SerializeField] private GameObject brain;
     [SerializeField] private GameObject nr;
     [SerializeField] private GameObject rp;
     [SerializeField] private GameObject ap;
@@ -41,28 +38,26 @@ public class PresentationMode : MonoBehaviour
     [SerializeField] private GameObject hm;
     [SerializeField] private GameObject this1;
     
-    [SerializeField] private GameObject SkipHR;
-
-    private MoveSphere _moveSphere;
+    //[SerializeField] private GameObject SkipHR;
+    
     private MenuScript _menu;
     private ModelLink _modelLink;
-    [NonSerialized] public bool ModelLinkWork;
+    //[NonSerialized] public bool ModelLinkWork;
     
 
     public void Awake()
     {
-        SkipHR = GameObject.Find("SkipHR");
+        //SkipHR = GameObject.Find("SkipHR");
         _modelLink = GameObject.Find("Menu").GetComponent<ModelLink>();
     }
 
     public void Start()
     {
-        this1 = this.gameObject;
-        _moveSphere = brain.GetComponent<MoveSphere>();
+        this1 = gameObject;
         _menu = GameObject.Find("Menu").GetComponent<MenuScript>();
     }
 
-    public void DeactSlides(GameObject slideNum)
+    private void DeactSlides(GameObject slideNum)
     {
         if (slide1 != null) slide1.SetActive(false);
         if (slide2 != null) slide2.SetActive(false);
@@ -99,7 +94,7 @@ public class PresentationMode : MonoBehaviour
             if (slide > 1) slide--;
         }
 
-        if (rc.active)
+        if (rc.activeInHierarchy)
         {
             TurnModel();
         }
@@ -109,15 +104,12 @@ public class PresentationMode : MonoBehaviour
 
     public void TurnModel()
     {
-        //_ms.SMoveBack();
         switch (slide)
         {
             case 6:
-                //_moveSphere.SMoveBack();
                 _modelLink.wz.Y = 0.6f;
                 break;
             case 7:
-                Debug.Log("Зашёл сначала");
                 _modelLink.ModelLinkvoid("Long");
                 break;
             case 8:
@@ -226,11 +218,7 @@ public class PresentationMode : MonoBehaviour
         rightButt.enabled = right;
         leftButt.enabled = left;
     }
-
-    public void ModelLinkText(GameObject text)
-    {
-        _moveSphere.SphereText(text);
-    }
+    
 
     private void Reload(GameObject anime)
     {
@@ -252,7 +240,6 @@ public class PresentationMode : MonoBehaviour
         int link2 = link;
         int first = link2;
         while (link2 > 10) first = (link2 /= 10) % 10;
-        Debug.Log("First" + first);
 
         switch (first)
         {
@@ -283,7 +270,6 @@ public class PresentationMode : MonoBehaviour
         {
             category.SetActive(true);
             PresentationMode pm = category.GetComponent<PresentationMode>();
-            Debug.Log("PM got");
             pm.slide = link - first * 100;
             pm.ShowButt();
             pm.WindOfChange();

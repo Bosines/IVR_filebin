@@ -11,7 +11,6 @@
           <e p="InputManager.cs" t="Include" />
           <e p="MenuScript.cs" t="Include" />
           <e p="ModelLink.cs" t="Include" />
-          <e p="MoveSphere.cs" t="Include" />
           <e p="PresentationMode.cs" t="Include" />
           <e p="RotateDrag.cs" t="Include" />
           <e p="Settings.cs" t="Include" />
