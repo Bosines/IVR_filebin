@@ -355,10 +355,9 @@ public class MenuScript : MonoBehaviour
 
     public void ShowCaption()
     {
-        if (WayVisible)
-        {
+        if (WayVisible) 
             return;
-        }
+        
         eyeLock.enabled = captionsVisible;
         if (SliceActive) foreach (var caption in _slicecaptions) caption.SetActive(!captionsVisible);
         if (!SliceActive) foreach (var caption in _fullcaptions) caption.SetActive(!captionsVisible);

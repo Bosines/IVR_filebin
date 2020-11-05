@@ -371,7 +371,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &27872452
 GameObject:
@@ -578,7 +578,6 @@ MonoBehaviour:
   slide18: {fileID: 0}
   slide19: {fileID: 0}
   slide20: {fileID: 0}
-  brain: {fileID: 1961610268}
   nr: {fileID: 1913936822}
   rp: {fileID: 1812102221}
   ap: {fileID: 40098547}
@@ -587,7 +586,6 @@ MonoBehaviour:
   rc: {fileID: 1070786097}
   hm: {fileID: 1082946291}
   this1: {fileID: 40098547}
-  SkipHR: {fileID: 291505876}
 --- !u!224 &40098549
 RectTransform:
   m_ObjectHideFlags: 0
@@ -626,7 +624,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 40325699}
-  - component: {fileID: 40325701}
   m_Layer: 0
   m_Name: LHalf
   m_TagString: Everything
@@ -649,18 +646,6 @@ Transform:
   m_Father: {fileID: 1961610273}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
---- !u!114 &40325701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40325698}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1adc3fa3bd95c1c49a6cc01d285a87ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &51576800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,7 +1945,6 @@ MonoBehaviour:
   slide18: {fileID: 1407777811}
   slide19: {fileID: 515850342}
   slide20: {fileID: 1677547345}
-  brain: {fileID: 1961610268}
   nr: {fileID: 1913936822}
   rp: {fileID: 1812102221}
   ap: {fileID: 40098547}
@@ -1969,7 +1953,6 @@ MonoBehaviour:
   rc: {fileID: 1070786097}
   hm: {fileID: 1082946291}
   this1: {fileID: 127426274}
-  SkipHR: {fileID: 291505876}
 --- !u!224 &127426276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5176,7 +5159,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 291505881}
-  - component: {fileID: 291505882}
   m_Layer: 0
   m_Name: SkipHR
   m_TagString: Right
@@ -5201,18 +5183,6 @@ Transform:
   m_Father: {fileID: 1961610273}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &291505882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291505876}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1adc3fa3bd95c1c49a6cc01d285a87ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &291631171
 GameObject:
   m_ObjectHideFlags: 0
@@ -5965,7 +5935,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 1670616699}
-  brain: {fileID: 0}
 --- !u!135 &355795182
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6073,7 +6042,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 729423058}
-  brain: {fileID: 0}
 --- !u!135 &359244555
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8110,7 +8078,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 510944045}
-  - component: {fileID: 510944047}
   - component: {fileID: 510944041}
   - component: {fileID: 510944042}
   m_Layer: 0
@@ -8133,7 +8100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 1502639396}
-  brain: {fileID: 0}
 --- !u!114 &510944042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8147,7 +8113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 2053170426}
-  brain: {fileID: 0}
 --- !u!4 &510944045
 Transform:
   m_ObjectHideFlags: 0
@@ -8163,18 +8128,6 @@ Transform:
   m_Father: {fileID: 1961610273}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -35.4, y: 2.0570002, z: 59.801003}
---- !u!114 &510944047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510944040}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1adc3fa3bd95c1c49a6cc01d285a87ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &511536976
 GameObject:
   m_ObjectHideFlags: 0
@@ -10794,7 +10747,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 692669239}
-  - component: {fileID: 692669241}
   m_Layer: 0
   m_Name: Middle
   m_TagString: Right
@@ -10817,18 +10769,6 @@ Transform:
   m_Father: {fileID: 1961610273}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -67.772, y: -179.99998, z: 90}
---- !u!114 &692669241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692669234}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1adc3fa3bd95c1c49a6cc01d285a87ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &693067596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: bc73c78e8d321ee409b34b85aa8ce331,
@@ -11011,7 +10951,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 77893096}
-  brain: {fileID: 0}
 --- !u!135 &693956053
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11444,7 +11383,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 1483699469}
-  brain: {fileID: 0}
 --- !u!114 &748920048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11458,7 +11396,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 864082183}
-  brain: {fileID: 0}
 --- !u!1 &754382750
 GameObject:
   m_ObjectHideFlags: 0
@@ -13080,7 +13017,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 864082183}
-  brain: {fileID: 0}
 --- !u!114 &846582610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13094,7 +13030,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 1483699469}
-  brain: {fileID: 0}
 --- !u!114 &846582611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14018,50 +13953,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &876220537
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 876220538}
-  - component: {fileID: 876220539}
-  m_Layer: 0
-  m_Name: Trigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &876220538
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 876220537}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.26}
-  m_LocalScale: {x: 1.75, y: 1.75, z: 1.18}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &876220539
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 876220537}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &877959945
 GameObject:
   m_ObjectHideFlags: 0
@@ -16965,7 +16856,6 @@ MonoBehaviour:
   slide18: {fileID: 0}
   slide19: {fileID: 0}
   slide20: {fileID: 0}
-  brain: {fileID: 1961610268}
   nr: {fileID: 1913936822}
   rp: {fileID: 1812102221}
   ap: {fileID: 40098547}
@@ -16974,7 +16864,6 @@ MonoBehaviour:
   rc: {fileID: 1070786097}
   hm: {fileID: 1082946291}
   this1: {fileID: 1070786097}
-  SkipHR: {fileID: 291505876}
 --- !u!224 &1070786099
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17055,7 +16944,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 291631171}
-  brain: {fileID: 0}
 --- !u!135 &1070815320
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17238,7 +17126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 539241112}
-  brain: {fileID: 0}
 --- !u!1 &1079421340
 GameObject:
   m_ObjectHideFlags: 0
@@ -17414,7 +17301,6 @@ MonoBehaviour:
   slide18: {fileID: 0}
   slide19: {fileID: 0}
   slide20: {fileID: 0}
-  brain: {fileID: 1961610268}
   nr: {fileID: 1913936822}
   rp: {fileID: 1812102221}
   ap: {fileID: 40098547}
@@ -17423,7 +17309,6 @@ MonoBehaviour:
   rc: {fileID: 1070786097}
   hm: {fileID: 1082946291}
   this1: {fileID: 1082946291}
-  SkipHR: {fileID: 291505876}
 --- !u!1 &1083865019
 GameObject:
   m_ObjectHideFlags: 0
@@ -23140,7 +23025,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1510793481}
-  - component: {fileID: 1510793482}
   m_Layer: 0
   m_Name: RHalf
   m_TagString: Right
@@ -23169,18 +23053,6 @@ Transform:
   m_Father: {fileID: 1961610273}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
---- !u!114 &1510793482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1510793476}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1adc3fa3bd95c1c49a6cc01d285a87ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1521142722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25892,7 +25764,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 659987799}
-  brain: {fileID: 0}
 --- !u!135 &1643472879
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -26202,7 +26073,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1675083015}
-  - component: {fileID: 1675083017}
   - component: {fileID: 1675083011}
   m_Layer: 0
   m_Name: Bridge
@@ -26224,7 +26094,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 1313991234}
-  brain: {fileID: 0}
 --- !u!4 &1675083015
 Transform:
   m_ObjectHideFlags: 0
@@ -26240,18 +26109,6 @@ Transform:
   m_Father: {fileID: 1961610273}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -73.528, y: 180.00002, z: 90}
---- !u!114 &1675083017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675083010}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1adc3fa3bd95c1c49a6cc01d285a87ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1677547345
 GameObject:
   m_ObjectHideFlags: 0
@@ -26335,7 +26192,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1680461731}
-  - component: {fileID: 1680461733}
   m_Layer: 0
   m_Name: SkipHL
   m_TagString: Everything
@@ -26359,18 +26215,6 @@ Transform:
   m_Father: {fileID: 1961610273}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1680461733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680461730}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1adc3fa3bd95c1c49a6cc01d285a87ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1691616337
 GameObject:
   m_ObjectHideFlags: 0
@@ -29341,7 +29185,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1808520168}
-  - component: {fileID: 1808520170}
   m_Layer: 0
   m_Name: LCerebellum
   m_TagString: Everything
@@ -29364,18 +29207,6 @@ Transform:
   m_Father: {fileID: 1961610273}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -68, y: 176, z: -90}
---- !u!114 &1808520170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808520167}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1adc3fa3bd95c1c49a6cc01d285a87ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1812102221
 GameObject:
   m_ObjectHideFlags: 0
@@ -29429,7 +29260,6 @@ MonoBehaviour:
   slide18: {fileID: 0}
   slide19: {fileID: 0}
   slide20: {fileID: 0}
-  brain: {fileID: 1961610268}
   nr: {fileID: 1913936822}
   rp: {fileID: 1812102221}
   ap: {fileID: 40098547}
@@ -29438,7 +29268,6 @@ MonoBehaviour:
   rc: {fileID: 1070786097}
   hm: {fileID: 1082946291}
   this1: {fileID: 1812102221}
-  SkipHR: {fileID: 291505876}
 --- !u!224 &1812102223
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31410,7 +31239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 1648851100}
-  brain: {fileID: 0}
 --- !u!4 &1894512006
 Transform:
   m_ObjectHideFlags: 0
@@ -31890,7 +31718,6 @@ MonoBehaviour:
   slide18: {fileID: 0}
   slide19: {fileID: 0}
   slide20: {fileID: 0}
-  brain: {fileID: 1961610268}
   nr: {fileID: 1913936822}
   rp: {fileID: 1812102221}
   ap: {fileID: 40098547}
@@ -31899,7 +31726,6 @@ MonoBehaviour:
   rc: {fileID: 1070786097}
   hm: {fileID: 1082946291}
   this1: {fileID: 1913936822}
-  SkipHR: {fileID: 291505876}
 --- !u!224 &1913936824
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32999,7 +32825,6 @@ GameObject:
   - component: {fileID: 1961610271}
   - component: {fileID: 1961610270}
   - component: {fileID: 1961610269}
-  - component: {fileID: 1961610275}
   - component: {fileID: 1961610274}
   m_Layer: 0
   m_Name: Brain
@@ -33101,7 +32926,7 @@ RectTransform:
   - {fileID: 291505881}
   - {fileID: 1680461731}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0.518, y: 64.19, z: 2.0210001}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33122,18 +32947,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomBar: {fileID: 1844300991}
   cubeS: {fileID: 1961610268}
---- !u!114 &1961610275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1961610268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98da1dd997624c458d287f9007d4501, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1963251481
 GameObject:
   m_ObjectHideFlags: 0
@@ -36234,7 +36047,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textThere: {fileID: 64315713}
-  brain: {fileID: 0}
 --- !u!135 &2117492779
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -36551,7 +36363,6 @@ MonoBehaviour:
   slide18: {fileID: 0}
   slide19: {fileID: 0}
   slide20: {fileID: 0}
-  brain: {fileID: 1961610268}
   nr: {fileID: 1913936822}
   rp: {fileID: 1812102221}
   ap: {fileID: 40098547}
@@ -36560,7 +36371,6 @@ MonoBehaviour:
   rc: {fileID: 1070786097}
   hm: {fileID: 1082946291}
   this1: {fileID: 2136127086}
-  SkipHR: {fileID: 291505876}
 --- !u!224 &2136127088
 RectTransform:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class ModelLink : MonoBehaviour
     public WheelZoom wz;
     private MenuScript _menu;
     private readonly Quaternion _zerorotate = new Quaternion(0,0,0,0);
-    public bool modelLinkWork;
+    //public bool modelLinkWork;
     
     void Start()
     {
@@ -75,7 +75,7 @@ public class ModelLink : MonoBehaviour
             {
                 brain.transform.rotation = _zerorotate;
                 brain.transform.eulerAngles = new Vector3(0, -90, 0);
-                while (!_menu.SliceActive) _menu.ChooseSlice();
+                while (_menu.SliceActive) _menu.ChooseSlice();
                 wz.Y = 0.45f;
                 break;
             }

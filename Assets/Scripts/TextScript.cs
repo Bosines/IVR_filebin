@@ -3,7 +3,9 @@ using UnityEngine.UI;
 
 public class TextScript : MonoBehaviour
 {
-    public GameObject textThere, brain;
+    public GameObject textThere;
+    
+    private GameObject _brain;
     private Camera _cameraMain;
     private Image _image;
     private Text _text;
@@ -14,15 +16,15 @@ public class TextScript : MonoBehaviour
         _menuScript = GameObject.Find("Menu").GetComponent<MenuScript>();
         _image = textThere.GetComponentInChildren<Image>();
         _text = textThere.GetComponentInChildren<Text>();
-        brain = GameObject.Find("Brain");
+        _brain = GameObject.Find("Brain");
         _cameraMain = Camera.main;
     }
-    //0.4<x<0.9 -0.4<x<-0.9
+    
     private void Update()
     {
         if (_menuScript.SliceActive)
         {
-            if (brain.transform.eulerAngles.y > 320 || brain.transform.eulerAngles.y < 200 || (brain.transform.eulerAngles.z > 50 && brain.transform.eulerAngles.z < 180) || (brain.transform.eulerAngles.z < 300 && brain.transform.eulerAngles.z >= 180))
+            if (_brain.transform.eulerAngles.y > 320 || _brain.transform.eulerAngles.y < 200 || (_brain.transform.eulerAngles.z > 50 && _brain.transform.eulerAngles.z < 180) || (_brain.transform.eulerAngles.z < 300 && _brain.transform.eulerAngles.z >= 180))
             {
                 _image.enabled = false;
                 _text.enabled = false;
@@ -35,7 +37,7 @@ public class TextScript : MonoBehaviour
         }
         else
         {
-            if (brain.transform.eulerAngles.y > 150 || brain.transform.eulerAngles.y < 40 || (brain.transform.eulerAngles.z > 50 && brain.transform.eulerAngles.z < 180) || (brain.transform.eulerAngles.z < 300 && brain.transform.eulerAngles.z >= 180))
+            if (_brain.transform.eulerAngles.y > 150 || _brain.transform.eulerAngles.y < 40 || (_brain.transform.eulerAngles.z > 50 && _brain.transform.eulerAngles.z < 180) || (_brain.transform.eulerAngles.z < 300 && _brain.transform.eulerAngles.z >= 180))
             {
                 _image.enabled = false;
                 _text.enabled = false;

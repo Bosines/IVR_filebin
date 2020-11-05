@@ -107,7 +107,7 @@ public class PresentationMode : MonoBehaviour
         switch (slide)
         {
             case 6:
-                _modelLink.wz.Y = 0.6f;
+                _modelLink.ModelLinkvoid("Full");
                 break;
             case 7:
                 _modelLink.ModelLinkvoid("Long");
@@ -197,7 +197,7 @@ public class PresentationMode : MonoBehaviour
         }
     }
 
-    public void ShowButt()
+    private void ShowButt()
     {
         if (slide == 1)
         {
