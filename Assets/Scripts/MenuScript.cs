@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
     
@@ -23,13 +24,13 @@ public class MenuScript : MonoBehaviour
     private CanvasRenderer _categoryRoll;
     [SerializeField] private Image marker;
     
-    public bool presentationVisible, sliceButtVisible, sliceActive, sliceTimer, menuVisible, wayVisible;
+    [NonSerialized] public bool PresentationVisible, SliceButtVisible, SliceActive, SliceTimer, MenuVisible, WayVisible;
     public int slideTimer;
 
     private Image _seroCh, _noraCh, _dofaCh, _acetCh;
     private Image _categoryRollImage;
 
-    [SerializeField] private Transform menuLeftPos, menuRightPos;
+    [SerializeField] private Transform _menuLeftPos, _menuRightPos, _acetRightPos, _acetLeftPos;
     
     
     [SerializeField] private GameObject sceneCube;
@@ -59,8 +60,8 @@ public class MenuScript : MonoBehaviour
 
     private void Awake()
     {
-        menuLeftPos = GameObject.Find("MenuPointerLeft").transform;
-        menuRightPos = GameObject.Find("MenuPointerRight").transform;
+        _menuLeftPos = GameObject.Find("MenuPointerLeft").transform;
+        _menuRightPos = GameObject.Find("MenuPointerRight").transform;
 
         _inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
         
@@ -103,11 +104,11 @@ public class MenuScript : MonoBehaviour
             ShowSliceButt();
         
         
-        if (Input.GetKeyDown(KeyCode.Escape) & wayVisible)
+        if (Input.GetKeyDown(KeyCode.Escape) & WayVisible)
             Ways(currentWay);
 
         
-        if (Input.GetKeyDown(KeyCode.Escape) & sliceActive)
+        if (Input.GetKeyDown(KeyCode.Escape) & SliceActive)
             ChooseSlice();
     }
 
@@ -158,25 +159,25 @@ public class MenuScript : MonoBehaviour
         if (captionsVisible) 
             ShowCaption();
         
-        if (sliceButtVisible)
+        if (SliceButtVisible)
             ShowSliceButt();
         
         if (isWork) return;
-        if (menuVisible)
+        if (MenuVisible)
         {
             _categoryRoll.transform.position = _defaultRoll;
             UnActive();
             categoryOpen = false;
-            StartCoroutine(SmoothMove(menuLeftPos.position, TimeDelta, this.gameObject));
+            StartCoroutine(SmoothMove(_menuLeftPos.position, TimeDelta, this.gameObject));
             _categoryMain.enabled = false;
             _categoryRollImage.enabled = false;
         }
         else
         {
-            StartCoroutine(SmoothMove(menuRightPos.position, TimeDelta, this.gameObject));
+            StartCoroutine(SmoothMove(_menuRightPos.position, TimeDelta, this.gameObject));
             if (captionsVisible) ShowCaption();
         }
-        menuVisible = !menuVisible;
+        MenuVisible = !MenuVisible;
     }
 
     IEnumerator SmoothMove(Vector3 target, float delta, GameObject movingObject)
@@ -202,14 +203,13 @@ public class MenuScript : MonoBehaviour
 
     public void AcetButton(Image arrow)
     {
-        var acettp = acetHelp.transform.position;
         arrow.transform.localScale = new Vector3(-_acetTimer, 1, 1);
         Vector3 target;
         
         if (_acetTimer == -1) 
-            target = acettp + new Vector3(170, 0 ,0 );
+            target = _acetRightPos.position;
         else 
-            target = acettp - new Vector3(170, 0 ,0 );
+            target = _acetLeftPos.position;
         
         StartCoroutine(SmoothMove(target, 0.1f, acetHelp));
         
@@ -232,7 +232,7 @@ public class MenuScript : MonoBehaviour
 
     public void ChooseSlice()
     {
-        if (!sliceActive)
+        if (!SliceActive)
         {
             foreach (GameObject go in _righttag) go.SetActive(true);
             foreach (GameObject go in _everythingtag) go.SetActive(false);
@@ -267,17 +267,17 @@ public class MenuScript : MonoBehaviour
         }
         
 
-        marker.enabled = !sliceActive;
-        sliceActive = !sliceActive;
+        marker.enabled = !SliceActive;
+        SliceActive = !SliceActive;
     }
 
     public void ShowSliceButt()
     {
-        if (menuVisible) 
+        if (MenuVisible) 
             Clicked();
         
-        sliceCategory.SetActive(!sliceButtVisible);
-        sliceButtVisible = !sliceButtVisible;
+        sliceCategory.SetActive(!SliceButtVisible);
+        SliceButtVisible = !SliceButtVisible;
     }
     
     public void ToSlide(int slideNum)
@@ -296,16 +296,16 @@ public class MenuScript : MonoBehaviour
         PresentationMode present = lesson.GetComponent<PresentationMode>();
         present.slide = slideTimer;
         present.WindOfChange();
-        sceneCube.SetActive(presentationVisible);
+        sceneCube.SetActive(PresentationVisible);
         //cube.SetActive(isPresent);
-        presentation.SetActive(!presentationVisible);
-        lesson.SetActive(!presentationVisible);
-        if (menuVisible) Clicked();
-        sliceCategory.SetActive(presentationVisible);
-        sliceButt.SetActive(presentationVisible);
+        presentation.SetActive(!PresentationVisible);
+        lesson.SetActive(!PresentationVisible);
+        if (MenuVisible) Clicked();
+        sliceCategory.SetActive(PresentationVisible);
+        sliceButt.SetActive(PresentationVisible);
 
-        presentationVisible = !presentationVisible;
-        if (wayVisible) Ways(currentWay);
+        PresentationVisible = !PresentationVisible;
+        if (WayVisible) Ways(currentWay);
         
         currentLesson = lesson;
         if (captionsVisible) ShowCaption();
@@ -317,13 +317,13 @@ public class MenuScript : MonoBehaviour
         /*if (sliceButtVisible)
             ShowSliceButt();*/
         
-        if (wayVisible)
+        if (WayVisible)
         {
             if (way == currentWay)
             {
                 //выключаем
                 way.SetActive(false);
-                wayVisible = false;
+                WayVisible = false;
                 ShowChosen(true);
             }
             else
@@ -331,7 +331,7 @@ public class MenuScript : MonoBehaviour
                 //переключаем
                 currentWay.SetActive(false);
                 way.SetActive(true);
-                wayVisible = true;
+                WayVisible = true;
                 currentWay = way;
                 ShowChosen(false);
             }
@@ -342,12 +342,12 @@ public class MenuScript : MonoBehaviour
             //currentWay.SetActive(false);
             currentWay = way;
             way.SetActive(true);
-            wayVisible = true;
+            WayVisible = true;
             ShowChosen(false);
         }
         
         
-        if (presentationVisible) 
+        if (PresentationVisible) 
             PresentationMode(currentLesson);
         
         
@@ -379,13 +379,13 @@ public class MenuScript : MonoBehaviour
 
     public void ShowCaption()
     {
-        if (wayVisible)
+        if (WayVisible)
         {
             return;
         }
         eyeLock.enabled = captionsVisible;
-        if (sliceActive) foreach (var caption in _slicecaptions) caption.SetActive(!captionsVisible);
-        if (!sliceActive) foreach (var caption in _fullcaptions) caption.SetActive(!captionsVisible);
+        if (SliceActive) foreach (var caption in _slicecaptions) caption.SetActive(!captionsVisible);
+        if (!SliceActive) foreach (var caption in _fullcaptions) caption.SetActive(!captionsVisible);
         foreach (var caption in _captions) caption.SetActive(!captionsVisible);
         captionsVisible = !captionsVisible;
     }    

@@ -21,7 +21,7 @@ public class ModelLink : MonoBehaviour
         if (sphere == "Half")
         {
             brain.transform.rotation = _zerorotate;
-            while (_menu.sliceActive) _menu.ChooseSlice();
+            while (_menu.SliceActive) _menu.ChooseSlice();
             wz.Y = 0.25f;
             wz.X = 0.25f;
         }
@@ -29,7 +29,7 @@ public class ModelLink : MonoBehaviour
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0, -180, 0);
-            while (_menu.sliceActive) _menu.ChooseSlice();
+            while (_menu.SliceActive) _menu.ChooseSlice();
             wz.Y = 0.52f;
             wz.X = 0.36f;
                 //Debug.Log("Cerebellum slide");
@@ -38,7 +38,7 @@ public class ModelLink : MonoBehaviour
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0f, -90, 0);
-            while (!_menu.sliceActive) _menu.ChooseSlice();
+            while (!_menu.SliceActive) _menu.ChooseSlice();
             wz.Y = 0.6f;
             wz.X = 0.5f;
             //Debug.Log("Bridge slide");
@@ -48,7 +48,7 @@ public class ModelLink : MonoBehaviour
             //Debug.Log("Вышел потом");
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0f, -90, 0);
-            while (!_menu.sliceActive) _menu.ChooseSlice();
+            while (!_menu.SliceActive) _menu.ChooseSlice();
             wz.Y = 0.8f;
             wz.X = 0.75f;
             //Debug.Log("Long slide");
@@ -57,7 +57,7 @@ public class ModelLink : MonoBehaviour
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0f, -90, 0);
-            while (!_menu.sliceActive) _menu.ChooseSlice();
+            while (!_menu.SliceActive) _menu.ChooseSlice();
             wz.Y = 0.45f;
             wz.X = 0.5f;
             //Debug.Log("middle slide");
@@ -66,7 +66,7 @@ public class ModelLink : MonoBehaviour
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0f, -90, 0);
-            while (!_menu.sliceActive) _menu.ChooseSlice();
+            while (!_menu.SliceActive) _menu.ChooseSlice();
             wz.Y = 0.35f;
             wz.X = 0.35f;
             //Debug.Log("middle slide");
@@ -75,7 +75,7 @@ public class ModelLink : MonoBehaviour
         {
             brain.transform.rotation = _zerorotate;
             brain.transform.eulerAngles = new Vector3(0, -90, 0);
-            while (!_menu.sliceActive) _menu.ChooseSlice();
+            while (!_menu.SliceActive) _menu.ChooseSlice();
             wz.Y = 0.45f;
         }
     }
