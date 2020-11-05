@@ -276,6 +276,7 @@ public class MenuScript : MonoBehaviour
 
     public void PresentationMode(GameObject lesson)
     {
+        if (SliceButtVisible) ShowSliceButt();
         if (WayVisible) Ways(currentWay);
         PresentationMode present = lesson.GetComponent<PresentationMode>();
         present.slide = slideTimer;
