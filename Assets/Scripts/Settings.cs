@@ -48,19 +48,21 @@ public class Settings : MonoBehaviour
                 if (e.isKey)
                 {
                     //keys[currentKey.name] = e.keyCode;
-                    _currentKey.transform.GetChild(0).GetComponent<Text>().text = e.keyCode.ToString();
+                    
                     //Debug.Log("Keyboard pressed");
                     switch (_currentKey.name)
                     {
                         case "MenuSet":
-                            _inputManager.SetKeyMap("Menu", e.keyCode);
+                            //_inputManager.SetKeyMap("Menu", e.keyCode);
+                            if (_inputManager.SetKeyMap("Menu", e.keyCode)) _currentKey.transform.GetChild(0).GetComponent<Text>().text = e.keyCode.ToString();
                             break;
                         case "SliceSet":
-                            Debug.Log("SliceEnter");
-                            _inputManager.SetKeyMap("Slice", e.keyCode);
+                            //_inputManager.SetKeyMap("Slice", e.keyCode);
+                            if (_inputManager.SetKeyMap("Slice", e.keyCode)) _currentKey.transform.GetChild(0).GetComponent<Text>().text = e.keyCode.ToString();
                             break;
                         case "RotateSet":
-                            _inputManager.SetKeyMap("Rotate", e.keyCode);
+                            //_inputManager.SetKeyMap("Rotate", e.keyCode);
+                            if (_inputManager.SetKeyMap("Rotate", e.keyCode)) _currentKey.transform.GetChild(0).GetComponent<Text>().text = e.keyCode.ToString();
                             break;
                     }
                     /*if (currentKey.name == "MenuSet")
@@ -68,6 +70,7 @@ public class Settings : MonoBehaviour
                         //Debug.Log("Вышел");
                         _inputManager.SetKeyMap("Menu", e.keyCode);
                     }*/
+//                    _currentKey.transform.GetChild(0).GetComponent<Text>().text = e.keyCode.ToString();
                     _currentKey = null;
                 }
 
@@ -78,19 +81,22 @@ public class Settings : MonoBehaviour
                         if (Input.GetKeyDown(_mouseKeys[i])) 
                         {
                             //keys[currentKey.name] = mouseKeys[i];
-                            _currentKey.transform.GetChild(0).GetComponent<Text>().text = _mouseKeys[i].ToString();
                             switch (_currentKey.name)
                             {
                                 case "MenuSet":
-                                    _inputManager.SetKeyMap("Menu", _mouseKeys[i]);
+                                    //_inputManager.SetKeyMap("Menu", _mouseKeys[i]);
+                                    if (_inputManager.SetKeyMap("Menu", _mouseKeys[i])) _currentKey.transform.GetChild(0).GetComponent<Text>().text = _mouseKeys[i].ToString();
                                     break;
                                 case "SliceSet":
-                                    _inputManager.SetKeyMap("Slice", _mouseKeys[i]);
+                                    //_inputManager.SetKeyMap("Slice", _mouseKeys[i]);
+                                    if (_inputManager.SetKeyMap("Slice", _mouseKeys[i])) _currentKey.transform.GetChild(0).GetComponent<Text>().text = _mouseKeys[i].ToString();
                                     break;
                                 case "RotateSet":
-                                    _inputManager.SetKeyMap("Rotate", _mouseKeys[i]);
+                                    //_inputManager.SetKeyMap("Rotate", _mouseKeys[i]);
+                                    if (_inputManager.SetKeyMap("Rotate", _mouseKeys[i])) _currentKey.transform.GetChild(0).GetComponent<Text>().text = _mouseKeys[i].ToString();
                                     break;
                             }
+//                            _currentKey.transform.GetChild(0).GetComponent<Text>().text = _mouseKeys[i].ToString();
                             _currentKey = null;
                         }
                     }

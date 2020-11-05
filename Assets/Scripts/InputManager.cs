@@ -33,12 +33,13 @@ public class InputManager : MonoBehaviour
         }
     }
  
-    public void SetKeyMap(string keyMap,KeyCode key)
+    public bool SetKeyMap(string keyMap,KeyCode key)
     {
-/*        if (!_keys.ContainsKey(keyMap))
-            throw new ArgumentException("Invalid KeyMap in SetKeyMap: " + keyMap); //Debug.Log("Но такая уже есть");*/
+        if(_keys.ContainsValue(key))
+            return false;
         Debug.Log(keyMap);
         _keys[keyMap] = key;
+        return true;
     }
  
     public bool GetKeyDown(string keyMap)
